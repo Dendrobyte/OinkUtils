@@ -63,6 +63,7 @@ public class Main extends JavaPlugin {
         getCommand("chatcolorchange").setExecutor(new ColorChangeCommand());
         // Modtools
         getCommand("modtools").setExecutor(new CommandBase());
+        getCommand("sneeze").setExecutor(new CommandBase());
 
         getLogger().log(Level.INFO, "OinkUtils v" + getDescription().getVersion() + " has successfully been enabled!");
     }

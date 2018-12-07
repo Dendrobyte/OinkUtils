@@ -2,11 +2,15 @@ package com.oinkcraft.oinkutils.modtools;
 
 import com.oinkcraft.oinkutils.Main;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.BreakerItem;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+
+import java.util.List;
 
 /**
  * Created by Mark on 6/12/2018.
@@ -63,6 +67,37 @@ public class CommandBase implements CommandExecutor {
                 player.sendMessage(prefix + "You must be a Moderator to use ModTools!");
                 player.sendMessage(prefix + "§2If you are a moderator... make sure you're in the creative world.");
                 return true;
+            } else {
+                if (args.length == 0) {
+                    player.sendMessage(prefix + "Please provide a radius!");
+                    player.sendMessage(prefix + "Try /modtools help");
+                    return true;
+                }
+                String radiusStr = args[0];
+                try {
+                    int radius = Integer.parseInt(radiusStr);
+                    if(radius > 80){
+                        player.sendMessage(prefix + "A radius greater than 80 is too much for this world.");
+                        return true;
+                    }
+                    List<Entity> entities = player.getNearbyEntities(radius, radius, radius);
+                    int clearedEnts = ModToolsManager.getInstance().sneezeAwayEntities(entities);
+                    player.sendMessage(prefix + ChatColor.BOLD + "ACHOOOOOOO!");
+                    if(clearedEnts == 0){
+                        player.sendMessage(prefix + "Looks like you didn't blow away any entities...");
+                        return true;
+                    }
+                    else if(clearedEnts > 800){
+                        player.sendMessage(prefix + "My my... that was a VERY impressive sneeze! Cleared " + clearedEnts + " entities.");
+                    } else {
+                        player.sendMessage(prefix + "À tes souhaits! Cleared " + clearedEnts + " entities.");
+                    }
+                    return true;
+
+                } catch(NumberFormatException e){
+                    player.sendMessage(prefix + "Please enter a valid whole number.");
+                    return true;
+                }
             }
         }
         return false;

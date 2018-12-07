@@ -1,6 +1,9 @@
 package com.oinkcraft.oinkutils.modtools;
 
-import javax.xml.stream.Location;
+import org.bukkit.Location;
+import org.bukkit.entity.*;
+
+import java.util.List;
 
 /**
  * OinkUtils created/started by Mark Bacon (Mobkinz78 or ByteKangaroo) on 12/7/2018
@@ -24,7 +27,15 @@ public class ModToolsManager {
     }
 
     /* The method that does the magic of the sneeze command (entity clearing) */
-    public void sneezeAwayEntities(Location location, int radius){
-
+    // Returns the number of entities cleared
+    public int sneezeAwayEntities(List<Entity> entityList){
+        int clearedCounter = 0;
+        for(Entity entity : entityList){
+            if(!(entity instanceof HumanEntity) && !(entity instanceof ItemFrame)){
+                entity.remove();
+                clearedCounter++;
+            }
+        }
+        return clearedCounter;
     }
 }
