@@ -82,7 +82,7 @@ public class CommandBase implements CommandExecutor {
                     }
                     List<Entity> entities = player.getNearbyEntities(radius, radius, radius);
                     int clearedEnts = ModToolsManager.getInstance().sneezeAwayEntities(entities);
-                    player.sendMessage(prefix + ChatColor.BOLD + "ACHOOOOOOO!");
+                    player.sendMessage(prefix + ChatColor.BOLD + "ACHOOOOOOOO!");
                     if(clearedEnts == 0){
                         player.sendMessage(prefix + "Looks like you didn't blow away any entities...");
                         return true;

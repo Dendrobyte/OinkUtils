@@ -15,7 +15,7 @@ public class BaseCommand implements CommandExecutor {
             return true;
         }
         Player player = (Player) sender;
-        if(command.getName().equals("oinkutils")){
+        if(command.getName().equalsIgnoreCase("oinkutils")){
             player.sendMessage(prefix + "§d§lOINK!");
         }
         return true;
