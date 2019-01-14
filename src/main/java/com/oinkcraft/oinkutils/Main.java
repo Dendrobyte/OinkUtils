@@ -9,9 +9,14 @@ import com.oinkcraft.oinkutils.modtools.CommandBase;
 import com.oinkcraft.oinkutils.compassnav.CompassClickListener;
 import com.oinkcraft.oinkutils.compassnav.InventoryClickListener;
 import com.oinkcraft.oinkutils.compassnav.PlayerGiveCompassListener;
+import com.oinkcraft.oinkutils.submission.JoinNotificationListener;
+import com.oinkcraft.oinkutils.submission.SubmitCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -20,6 +25,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.logging.Level;
 
@@ -31,6 +39,9 @@ public class Main extends JavaPlugin {
     private static Main main;
     // ClockBreaker thing
     private static HashMap<Player, Integer> clockBreakerClicks = new HashMap<Player, Integer>(); // Used for limiting clicks for the clockbreaker item.
+    // Submissions file creation
+    private File submissionsf;
+    private FileConfiguration submissions;
 
     @Override
     public void onEnable() {
@@ -39,6 +50,7 @@ public class Main extends JavaPlugin {
 
         // Create configuration
         createConfig();
+        createSubmissionYML();
 
         // Register the com.oinkcraft.oinkutils.Main instance
         main = this;
@@ -51,10 +63,11 @@ public class Main extends JavaPlugin {
         // ChatColorChange
         Bukkit.getServer().getPluginManager().registerEvents(new ChatColorChangeListener(), this);
         // ModTools/ClockBreaker
-        // Register events
         Bukkit.getServer().getPluginManager().registerEvents(new ClockBreakListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new ClockBreakerDropListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new ClockBreakInventoryMoveListener(), this);
+        // Submissions
+        Bukkit.getServer().getPluginManager().registerEvents(new JoinNotificationListener(), this);
 
         /* Register commands */
         // Oink utils base
@@ -64,6 +77,8 @@ public class Main extends JavaPlugin {
         // Modtools
         getCommand("modtools").setExecutor(new CommandBase());
         getCommand("sneeze").setExecutor(new CommandBase());
+        // Submissions
+        getCommand("submit").setExecutor(new SubmitCommand());
 
         getLogger().log(Level.INFO, "OinkUtils v" + getDescription().getVersion() + " has successfully been enabled!");
     }
@@ -109,4 +124,51 @@ public class Main extends JavaPlugin {
     public static HashMap<Player, Integer> getClockBreakerClicks(){
         return clockBreakerClicks;
     }
+
+    /* For the submissions YML file */
+    private void createSubmissionYML() {
+        // Factions config file
+        submissionsf = new File(getDataFolder(), "submissions.yml");
+        if(!submissionsf.exists()){
+            getLogger().log(Level.INFO, "No submissions file found... Generating now!");
+            saveResource("submissions.yml", false);
+        }
+        submissions = new YamlConfiguration();
+        try {
+            submissions.load(submissionsf);
+        } catch (IOException | InvalidConfigurationException e){
+            System.out.println(prefix + "Something has gone wrong with the submissions.yml!");
+            e.printStackTrace();
+        }
+    }
+
+    public FileConfiguration getSubmissions(){
+        return this.submissions;
+    }
+
+    public void saveSubmissions() {
+        if ((this.submissions == null) || (this.submissionsf == null)) {
+            return;
+        }
+        try {
+            getSubmissions().save(this.submissionsf);
+        }
+        catch (IOException ex) {
+            getLogger().log(Level.SEVERE, "Could not save config to " + this.submissions, ex);
+        }
+    }
+
+    public void reloadSubmissions() {
+        if (this.submissionsf == null) {
+            this.submissionsf = new File(getDataFolder(), "submissions.yml");
+        }
+        this.submissions = YamlConfiguration.loadConfiguration(this.submissionsf);
+
+        InputStream defConfigStream = getResource("submissions.yml");
+        if (defConfigStream != null) {
+            YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(new File(getDataFolder(), "submissions.yml"));
+            this.submissions.setDefaults(defConfig);
+        }
+    }
+
 }
