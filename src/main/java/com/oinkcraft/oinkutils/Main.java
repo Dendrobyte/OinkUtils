@@ -9,6 +9,7 @@ import com.oinkcraft.oinkutils.modtools.CommandBase;
 import com.oinkcraft.oinkutils.compassnav.CompassClickListener;
 import com.oinkcraft.oinkutils.compassnav.InventoryClickListener;
 import com.oinkcraft.oinkutils.compassnav.PlayerGiveCompassListener;
+import com.oinkcraft.oinkutils.redstoneworld.NoTNT;
 import com.oinkcraft.oinkutils.submission.JoinNotificationListener;
 import com.oinkcraft.oinkutils.submission.SubmitCommand;
 import org.bukkit.Bukkit;
@@ -68,6 +69,8 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new ClockBreakInventoryMoveListener(), this);
         // Submissions
         Bukkit.getServer().getPluginManager().registerEvents(new JoinNotificationListener(), this);
+        // NoTNT
+        Bukkit.getServer().getPluginManager().registerEvents(new NoTNT(), this);
 
         /* Register commands */
         // Oink utils base

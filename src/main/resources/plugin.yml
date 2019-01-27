@@ -19,6 +19,9 @@ commands:
     aliases: [clearentities]
     description: The sneeze command to get rid of entities - within ModTools package
     usage: /sneeze <radius>
+  submit:
+    description: Submit for builder, redstone, or parkour
+    usage: /submit
 permissions:
   oinkutils.admin:
     description: No need for a command yet, so...

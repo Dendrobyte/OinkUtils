@@ -21,86 +21,86 @@ public class SubmitCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player)sender;
         if (!(sender instanceof Player)) {
-            sender.sendMessage("�cSorry, you must be a player to use this command!");
-            return false;
+            sender.sendMessage("§cSorry, you must be a player to use this command!");
+            return true;
         }
         if (command.getName().equalsIgnoreCase("submit")) {
             if (args.length == 0) {
-                sender.sendMessage("�8<�2MibUtils�8>�7 �cToo few arguments provided!");
-                sender.sendMessage("�8<�2MibUtils�8>�7 �cUse �a/submit builder �cfor Builder submissions, �a/submit redstone �cfor Redstone Rank submissions, or �a/submit parkour�c for parkour map submissions.");
-                return false;
+                sender.sendMessage(prefix + "Too few arguments provided!");
+                sender.sendMessage(prefix + "Use §a/submit builder §7for Builder submissions, §a/submit redstone §7for Redstone Rank submissions, or §a/submit parkour§7 for parkour map submissions.");
+                return true;
             }
             if (args.length > 3) {
-                sender.sendMessage("�8<�2MibUtils�8>�7 �cToo many arguments provided!");
-                sender.sendMessage("�8<�2MibUtils�8>�7 �cUse �a/submit builder �cfor Builder submissions, �a/submit redstone �cfor Redstone Rank submissions, or �a/submit parkour�c for parkour map submissions.");
-                return false;
+                sender.sendMessage(prefix + "Too many arguments provided!");
+                sender.sendMessage(prefix + "Use §a/submit builder §7for Builder submissions, §a/submit redstone §7for Redstone Rank submissions, or §a/submit parkour§7 for parkour map submissions.");
+                return true;
             }
             if (args[0].equalsIgnoreCase("builder")) {
                 String playerName = player.getName();
                 if (Main.getInstance().getSubmissions().getStringList("submissions.builder").contains(playerName)) {
-                    sender.sendMessage("�8<�2MibUtils�8>�7 �cYou already have a submission pending. Please wait for an Admin to contact you. Thanks!");
-                    return false;
+                    sender.sendMessage(prefix + "You already have a submission pending. Please wait for an Admin to contact you. Thanks!");
+                    return true;
                 }
                 if (!Main.getInstance().getSubmissions().getStringList("submissions.builder").contains(playerName)) {
                     if (submitConfirmations.containsKey(player)) {
-                        player.sendMessage(this.prefix + "You already have a " + (String)submitConfirmations.get(player) + " submission pending.");
+                        player.sendMessage(this.prefix + "You already have a " + submitConfirmations.get(player) + " submission pending.");
                         return true;
                     }
                     confirmBuilderSubmission(player);
                     return true;
                 }
-                sender.sendMessage("�8<�2MibUtils�8>�7 �cSorry, something went wrong. Please try again or contact an Admin if this problem persists.");
+                sender.sendMessage(prefix + "Sorry, something went wrong. Please try again or contact an Admin if this problem persists.");
                 return true;
             }
             if (args[0].equalsIgnoreCase("redstone")) {
                 String playerName = player.getName();
                 if (Main.getInstance().getSubmissions().getStringList("submissions.redstone").contains(playerName)) {
-                    sender.sendMessage("�8<�2MibUtils�8>�7 �cYou already have a submission pending. Please wait for an Admin to contact you. Thanks!");
-                    return false;
+                    sender.sendMessage(prefix + "You already have a submission pending. Please wait for an Admin to contact you. Thanks!");
+                    return true;
                 }
                 if (!Main.getInstance().getSubmissions().getStringList("submissions.redstone").contains(playerName)) {
                     if (submitConfirmations.containsKey(player)) {
-                        player.sendMessage(this.prefix + "You already have a " + (String)submitConfirmations.get(player) + " submission pending.");
+                        player.sendMessage(this.prefix + "You already have a " + submitConfirmations.get(player) + " submission pending.");
                         return true;
                     }
                     confirmRedstoneSubmission(player);
                     return true;
                 }
-                sender.sendMessage("�8<�2MibUtils�8>�7 �cSorry, something went wrong. Please try again or contact an Admin if this problem persists.");
+                sender.sendMessage(prefix + "Sorry, something went wrong. Please try again or contact an Admin if this problem persists.");
                 return true;
             }
             if (args[0].equalsIgnoreCase("parkour")) {
                 String playerName = player.getName();
                 if (Main.getInstance().getSubmissions().getStringList("submissions.parkour").contains(playerName)) {
-                    player.sendMessage("�8<�2MibUtils�8>�7 �cYou already have a submission pending. Please wait for an Admin to contact you. Thanks!");
-                    return false;
+                    player.sendMessage(prefix + "You already have a submission pending. Please wait for an Admin to contact you. Thanks!");
+                    return true;
                 }
                 if (!Main.getInstance().getSubmissions().getStringList("submissions.parkour").contains(playerName)) {
                     if (submitConfirmations.containsKey(player))
                     {
-                        player.sendMessage(this.prefix + "You already have a " + (String)submitConfirmations.get(player) + " submission pending.");
+                        player.sendMessage(this.prefix + "You already have a " + submitConfirmations.get(player) + " submission pending.");
                         return true;
                     }
                     confirmParkourSubmission(player);
                     return true;
                 }
-                player.sendMessage("�8<�2MibUtils�8>�7 �cSorry, something went wrong. Please try again or contact an Admin if this problem persists.");
+                player.sendMessage(prefix + "Sorry, something went wrong. Please try again or contact an Admin if this problem persists.");
                 return true;
             }
             if ((args[0].equalsIgnoreCase("reload")) && (sender.hasPermission("mibutils.submissions.reload"))) {
-                sender.sendMessage("�8<�2MibUtils�8>�7 �7Reloading the submissions.yml file...");
+                sender.sendMessage(prefix + "Reloading the submissions.yml file...");
                 Main.getInstance().reloadSubmissions();
-                sender.sendMessage("�8<�2MibUtils�8>�7 �7Successfully reloaded the submissions.yml file!");
+                sender.sendMessage(prefix + "Successfully reloaded the submissions.yml file!");
                 return true;
             }
             if ((args[0].equalsIgnoreCase("reload")) && (!sender.hasPermission("mibutils.submissions.reload"))) {
-                sender.sendMessage("�8<�2MibUtils�8>�7 You do not have access to �cmibutils.submissions.reload");
+                sender.sendMessage(prefix + "You do not have access to §cmibutils.submissions.reload");
                 return true;
             }
             if ((args[0].equalsIgnoreCase("remove")) && (sender.hasPermission("mibutils.submissions.remove"))) {
                 if ((args.length < 3) || (args.length > 3)) {
-                    player.sendMessage("�8<�2MibUtils�8>�7 �cIncorrect usage! /submit remove <playername> <builder/redstone/parkour>");
-                    return false;
+                    player.sendMessage(prefix + "Incorrect usage! /submit remove <playername> <builder/redstone/parkour>");
+                    return true;
                 }
                 if (args.length == 3) {
                     if (args[2].equalsIgnoreCase("builder")) {
@@ -109,12 +109,12 @@ public class SubmitCommand implements CommandExecutor {
                             builderNames.remove(args[1]);
                             Main.getInstance().getSubmissions().set("submissions.builder", builderNames);
                             Main.getInstance().saveSubmissions();
-                            player.sendMessage("�8<�2MibUtils�8>�7 �aSuccessfully removed " + args[1] + " from the �2�lbuilder�r�a list.");
+                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the §2§lbuilder list.");
                             return true;
                         }
                         if (!builderNames.contains(args[1])) {
-                            player.sendMessage("�8<�2MibUtils�8>�7 �cCould you not find " + args[1] + " in the �2�lbuilder�r�c list.");
-                            return false;
+                            player.sendMessage(prefix + "Could you not find " + args[1] + " in the §2§lbuilder list.");
+                            return true;
                         }
                         return true;
                     }
@@ -124,12 +124,12 @@ public class SubmitCommand implements CommandExecutor {
                             redstoneNames.remove(args[1]);
                             Main.getInstance().getSubmissions().set("submissions.redstone", redstoneNames);
                             Main.getInstance().saveSubmissions();
-                            player.sendMessage("�8<�2MibUtils�8>�7 �aSuccessfully removed " + args[1] + " from the �4�lredstone�r�a list.");
+                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the §4§lredstone list.");
                             return true;
                         }
                         if (!redstoneNames.contains(args[1])) {
-                            player.sendMessage("�8<�2MibUtils�8>�7 �cCould not find " + args[1] + " in the �4�lredstone�r�c list.");
-                            return false;
+                            player.sendMessage(prefix + "Could not find " + args[1] + " in the §4§lredstone list.");
+                            return true;
                         }
                         return true;
                     }
@@ -139,12 +139,12 @@ public class SubmitCommand implements CommandExecutor {
                             parkourNames.remove(args[1]);
                             Main.getInstance().getSubmissions().set("submissions.parkour", parkourNames);
                             Main.getInstance().saveSubmissions();
-                            player.sendMessage("�8<�2MibUtils�8>�7 �aSuccessfully removed " + args[1] + " from the �7�lparkour�r�a list.");
+                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the §7§lparkour list.");
                             return true;
                         }
                         if (!parkourNames.contains(args[1])) {
-                            player.sendMessage("�8<�2MibUtils�8>�7 �cCould not find " + args[1] + " in the �7�lparkour�r�a list.");
-                            return false;
+                            player.sendMessage(prefix + "Could not find " + args[1] + " in the §7§lparkour list.");
+                            return true;
                         }
                     }
                 }
@@ -174,15 +174,15 @@ public class SubmitCommand implements CommandExecutor {
                     return true;
                 }
                 if (submitConfirmations.containsKey(player)) {
-                    if (((String)submitConfirmations.get(player)).equals("BUILDER")) {
+                    if ((submitConfirmations.get(player)).equals("BUILDER")) {
                         addToBuilder(player);
                         return true;
                     }
-                    if (((String)submitConfirmations.get(player)).equals("REDSTONE")) {
+                    if ((submitConfirmations.get(player)).equals("REDSTONE")) {
                         addToRedstone(player);
                         return true;
                     }
-                    if (((String)submitConfirmations.get(player)).equals("PARKOUR")) {
+                    if ((submitConfirmations.get(player)).equals("PARKOUR")) {
                         addToParkour(player);
                         return true;
                     }
@@ -191,15 +191,15 @@ public class SubmitCommand implements CommandExecutor {
                 }
             }
             if ((args[0].equalsIgnoreCase("list")) && (!sender.hasPermission("mibutils.submissions.list"))) {
-                sender.sendMessage("�8<�2MibUtils�8>�7 �7You do not have access to �cmibutils.submissions.list");
-                return false;
+                sender.sendMessage(prefix + "You do not have access to §cmibutils.submissions.list");
+                return true;
             }
             if ((args[0].equalsIgnoreCase("remove")) && (!sender.hasPermission("mibutils.submissions.remove"))) {
-                sender.sendMessage("�8<�2MibUtils�8>�7 �7You do not have access to �cmibutils.submissions.remove");
-                return false;
+                sender.sendMessage(prefix + "You do not have access to §cmibutils.submissions.remove");
+                return true;
             }
         }
-        return false;
+        return true;
     }
 
     public static HashMap<Player, String> getSubmitConfirmations() {
@@ -212,7 +212,7 @@ public class SubmitCommand implements CommandExecutor {
         player.sendMessage(this.prefix + "Type /submit yes if you are sure.");
         submitConfirmations.put(player, "BUILDER");
         ConfirmationTimer ct = new ConfirmationTimer(player);
-        ct.runTaskTimer(Main.getInstance(), 0L, 20L);
+        ct.runTaskTimer(Main.getInstance(), 0L, 400L);
     }
 
     private void confirmRedstoneSubmission(Player player) {
@@ -221,7 +221,7 @@ public class SubmitCommand implements CommandExecutor {
         player.sendMessage(this.prefix + "Type /submit yes if you are sure.");
         submitConfirmations.put(player, "REDSTONE");
         ConfirmationTimer ct = new ConfirmationTimer(player);
-        ct.runTaskTimer(Main.getInstance(), 0L, 20L);
+        ct.runTaskTimer(Main.getInstance(), 400L, 20L);
     }
 
     private void confirmParkourSubmission(Player player) {
@@ -230,7 +230,7 @@ public class SubmitCommand implements CommandExecutor {
         player.sendMessage(this.prefix + "Type /submit yes if you are sure.");
         submitConfirmations.put(player, "PARKOUR");
         ConfirmationTimer ct = new ConfirmationTimer(player);
-        ct.runTaskTimer(Main.getInstance(), 0L, 20L);
+        ct.runTaskTimer(Main.getInstance(), 0L, 400L);
     }
 
     private void addToBuilder(Player player) {
