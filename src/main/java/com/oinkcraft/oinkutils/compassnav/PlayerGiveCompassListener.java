@@ -26,10 +26,6 @@ public class PlayerGiveCompassListener implements Listener {
         String world = Main.getInstance().getConfig().getString("spawn-world");
         if (!player.getWorld().getName().equalsIgnoreCase(world)) return; // Do nothing if it isn't the spawn world
 
-        // Clear inventory
-        player.getInventory().clear();
-        player.getInventory().setArmorContents(null);
-
         // Give compass
         player.getInventory().setItem(0, Main.getInstance().navCompass());
 
@@ -39,9 +35,6 @@ public class PlayerGiveCompassListener implements Listener {
     public void joinEvent(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         if (player.getWorld().getName().equals("world")) {
-            // Clear inventory
-            player.getInventory().clear();
-            player.getInventory().setArmorContents(null);
 
             // Give compass
             player.getInventory().setItem(0, Main.getInstance().navCompass());

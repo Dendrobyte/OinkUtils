@@ -35,10 +35,10 @@ public class SpawnNavInventory {
         hubInv.setItem(0, redstone);
         redstone = new ItemStack(Material.STONE_AXE);
         redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§a§lPeaceful Survival/Towny");
+        redstoneMeta.setDisplayName("§a§l§mPeaceful Survival/Towny");
         redstoneLore = new ArrayList();
         redstoneLore.add("Teleport to the towny world!");
-        redstoneLore.add("Land claiming available for everyone with /kit claim!");
+        redstoneLore.add("Coming late February 2019");
         redstoneMeta.setLore(redstoneLore);
         redstone.setItemMeta(redstoneMeta);
         hubInv.setItem(2, redstone);
