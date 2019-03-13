@@ -9,6 +9,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
+import static org.bukkit.ChatColor.*;
+
 public class ColorChangeCommand implements CommandExecutor {
     String prefix = Main.getInstance().getPrefix();
 
@@ -20,11 +22,11 @@ public class ColorChangeCommand implements CommandExecutor {
             }
 
             Player player = (Player)sender;
-            ArrayList<String> validColors = new ArrayList();
+            ArrayList<String> validColors = new ArrayList<>();
             FileConfiguration config = Main.getInstance().getConfig();
             validColors = this.initiateValidColors(validColors);
             if (!player.hasPermission("oinkutils.colorchange")) {
-                player.sendMessage(this.prefix + "Sorry, no access! §cRequired permission: oinkutils.colorchange");
+                player.sendMessage(this.prefix + "Sorry, no access! "+ RED +"Required permission: oinkutils.colorchange");
                 return false;
             }
 
@@ -71,7 +73,7 @@ public class ColorChangeCommand implements CommandExecutor {
                 }
 
                 config.set("colorchange-users." + player.getName(), args[0].toLowerCase());
-                player.sendMessage(this.prefix + "§aChat color successfully set to §l" + args[0]);
+                player.sendMessage(this.prefix + GREEN +"Chat color successfully set to " + DARK_BLUE + args[0]);
                 Main.getInstance().saveConfig();
                 Main.getInstance().reloadConfig();
                 return true;

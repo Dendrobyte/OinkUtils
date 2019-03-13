@@ -5,6 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static org.bukkit.ChatColor.*;
+
 public class BaseCommand implements CommandExecutor {
 
     String prefix = Main.getInstance().getPrefix();
@@ -16,7 +18,7 @@ public class BaseCommand implements CommandExecutor {
         }
         Player player = (Player) sender;
         if(command.getName().equalsIgnoreCase("oinkutils")){
-            player.sendMessage(prefix + "§d§lOINK!");
+            player.sendMessage(prefix + LIGHT_PURPLE + BOLD +"OINK!");
         }
         return true;
     }

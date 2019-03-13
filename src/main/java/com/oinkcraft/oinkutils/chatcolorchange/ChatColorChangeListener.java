@@ -1,6 +1,7 @@
 package com.oinkcraft.oinkutils.chatcolorchange;
 
 import com.oinkcraft.oinkutils.Main;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -102,52 +103,52 @@ public class ChatColorChangeListener implements Listener {
 
                 switch(var7) {
                     case 0:
-                        event.setMessage("§0" + originMessage);
+                        event.setMessage(ChatColor.getByChar('0') + originMessage);
                         break;
                     case 1:
-                        event.setMessage("§1" + originMessage);
+                        event.setMessage(ChatColor.getByChar('1') + originMessage);
                         break;
                     case 2:
-                        event.setMessage("§2" + originMessage);
+                        event.setMessage(ChatColor.getByChar('2') + originMessage);
                         break;
                     case 3:
-                        event.setMessage("§3" + originMessage);
+                        event.setMessage(ChatColor.getByChar('3') + originMessage);
                         break;
                     case 4:
-                        event.setMessage("§4" + originMessage);
+                        event.setMessage(ChatColor.getByChar('4') + originMessage);
                         break;
                     case 5:
-                        event.setMessage("§5" + originMessage);
+                        event.setMessage(ChatColor.getByChar('5') + originMessage);
                         break;
                     case 6:
-                        event.setMessage("§6" + originMessage);
+                        event.setMessage(ChatColor.getByChar('6') + originMessage);
                         break;
                     case 7:
-                        event.setMessage("§7" + originMessage);
+                        event.setMessage(ChatColor.getByChar('7') + originMessage);
                         break;
                     case 8:
-                        event.setMessage("§8" + originMessage);
+                        event.setMessage(ChatColor.getByChar('8') + originMessage);
                         break;
                     case 9:
-                        event.setMessage("§9" + originMessage);
+                        event.setMessage(ChatColor.getByChar('9') + originMessage);
                         break;
                     case 10:
-                        event.setMessage("§a" + originMessage);
+                        event.setMessage(ChatColor.getByChar('a') + originMessage);
                         break;
                     case 11:
-                        event.setMessage("§b" + originMessage);
+                        event.setMessage(ChatColor.getByChar('b') + originMessage);
                         break;
                     case 12:
-                        event.setMessage("§c" + originMessage);
+                        event.setMessage(ChatColor.getByChar('c') + originMessage);
                         break;
                     case 13:
-                        event.setMessage("§d" + originMessage);
+                        event.setMessage(ChatColor.getByChar('d') + originMessage);
                         break;
                     case 14:
-                        event.setMessage("§e" + originMessage);
+                        event.setMessage(ChatColor.getByChar('e') + originMessage);
                         break;
                     case 15:
-                        event.setMessage("§f" + originMessage);
+                        event.setMessage(ChatColor.getByChar('f') + originMessage);
                 }
 
             }

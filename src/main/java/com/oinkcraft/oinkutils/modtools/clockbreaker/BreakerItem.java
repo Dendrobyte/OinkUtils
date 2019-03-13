@@ -4,6 +4,8 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import static org.bukkit.ChatColor.*;
+
 import java.util.ArrayList;
 
 /**
@@ -30,7 +32,7 @@ public class BreakerItem {
     public void setData(ItemStack item){
         item.setAmount(1);
         ItemMeta breakerMeta = item.getItemMeta();
-        breakerMeta.setDisplayName("§3§o§lClockBreaker");
+        breakerMeta.setDisplayName("" + DARK_AQUA + ITALIC + BOLD +"ClockBreaker");
         ArrayList<String> breakerLore = new ArrayList<>();
         breakerLore.add("This item is to be used by ONLY Moderators!");
         breakerLore.add("Please use to destroy ONLY clocks!");

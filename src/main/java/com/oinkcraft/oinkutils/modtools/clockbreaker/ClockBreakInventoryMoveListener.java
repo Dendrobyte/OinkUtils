@@ -9,6 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import static org.bukkit.ChatColor.*;
+
 /**
  * Created by Mark on 6/13/2018.
  * Written for project ModTools
@@ -22,8 +24,8 @@ public class ClockBreakInventoryMoveListener implements Listener {
     String prefix = ModToolsManager.getInstance().getPrefix();
 
     @EventHandler
-    public void onPlayerMoveClockBreaker(InventoryClickEvent event){
-        if(event.getCurrentItem() == null) {
+    public void onPlayerMoveClockBreaker(InventoryClickEvent event) {
+        if (event.getCurrentItem() == null) {
             return;
         }
         BreakerItem breakerItem = new BreakerItem(Material.STICK);
@@ -32,8 +34,8 @@ public class ClockBreakInventoryMoveListener implements Listener {
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
             player.closeInventory();
-            player.sendMessage(prefix + "§cPlease don't move and/or store the ClockBreaker.");
-            player.sendMessage(prefix + "§c(It has been removed)");
+            player.sendMessage(prefix + RED + "Please don't move and/or store the ClockBreaker.");
+            player.sendMessage(prefix + RED + "(It has been removed)");
             event.getCurrentItem().setAmount(0);
         }
     }
