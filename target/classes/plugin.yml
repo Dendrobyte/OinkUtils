@@ -1,0 +1,31 @@
+name: OinkUtils
+author: ByteKangaroo
+main: com.oinkcraft.oinkutils.Main
+version: 1.18
+api-version: 1.13
+description: Utilities for the main Oinkcraft server
+commands:
+  oinkutils:
+    usage: /<command>
+    description: Base OinkUtils command.
+  chatcolorchange:
+    usage: /<command>
+    description: Allows a player to change the color of their chat
+  modtools:
+    aliases: [mtools]
+    description: The base ModTool command to enable all your ModTool needs!
+    usage: /mtools help
+  sneeze:
+    aliases: [clearentities]
+    description: The sneeze command to get rid of entities - within ModTools package
+    usage: /sneeze <radius>
+  submit:
+    description: Submit for builder, redstone, or parkour
+    usage: /submit
+permissions:
+  oinkutils.admin:
+    description: No need for a command yet, so...
+  oinkutils.colorchange:
+    description: Allows a player to change the color of their chat
+  modtools.use:
+    description: Allows a player, or rank, to use the modtools command.

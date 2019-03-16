@@ -49,10 +49,10 @@ public class ClockBreakListener implements Listener {
             int currentClicks = Main.getClockBreakerClicks().get(player);
             currentClicks++;
             Main.getClockBreakerClicks().replace(player, currentClicks);
-            if(currentClicks > 3){
+            if(currentClicks > 200){
                 player.getInventory().remove(clockBreaker.getItem());
                 Main.getClockBreakerClicks().remove(player);
-                player.sendMessage(prefix + "You have hit your 4 block limit. The ClockBreaker has been removed from your inventory!");
+                player.sendMessage(prefix + "You have hit your 200 block limit. The ClockBreaker has been removed from your inventory!");
             }
 
             return;
