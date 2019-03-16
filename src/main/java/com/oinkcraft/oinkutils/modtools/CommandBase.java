@@ -10,6 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import static org.bukkit.ChatColor.*;
+
 import java.util.List;
 
 /**
@@ -33,7 +35,7 @@ public class CommandBase implements CommandExecutor {
         if(cmd.getName().equalsIgnoreCase("modtools")){
             if(!player.hasPermission("modtools.use")){
                 player.sendMessage(prefix + "You must be a Moderator to use ModTools!");
-                player.sendMessage(prefix + "§2If you are a moderator... make sure you're in the creative world.");
+                player.sendMessage(prefix + DARK_GREEN + "If you are a moderator... make sure you're in the creative world.");
                 return true;
             } else {
                 if(args.length == 0){
@@ -48,7 +50,7 @@ public class CommandBase implements CommandExecutor {
                 if(args[0].equalsIgnoreCase("clockbreaker")){
                     BreakerItem clockBreaker = new BreakerItem(Material.STICK);
                     if(player.getInventory().contains(clockBreaker.getItem())){
-                        player.sendMessage(prefix + "§cIt appears your inventory already contains a ClockBreaker!");
+                        player.sendMessage(prefix + RED + "It appears your inventory already contains a ClockBreaker!");
                         return true;
                     }
                     player.getInventory().setItem(0, clockBreaker.getItem());
@@ -65,7 +67,7 @@ public class CommandBase implements CommandExecutor {
         if(cmd.getName().equalsIgnoreCase("sneeze")){
             if(!player.hasPermission("modtools.use")){
                 player.sendMessage(prefix + "You must be a Moderator to use ModTools!");
-                player.sendMessage(prefix + "§2If you are a moderator... make sure you're in the creative world.");
+                player.sendMessage(prefix + DARK_GREEN +"If you are a moderator... make sure you're in the creative world.");
                 return true;
             } else {
                 if (args.length == 0) {

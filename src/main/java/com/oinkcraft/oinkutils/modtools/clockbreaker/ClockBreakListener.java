@@ -9,7 +9,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-
+import static org.bukkit.ChatColor.*;
 /**
  * Created by Mark on 6/12/2018.
  * Written for project ModTools
@@ -34,7 +34,7 @@ public class ClockBreakListener implements Listener {
             // TODO: Check to make sure they are in the creative world (Add a config value!)
             // TODO: Redstone block check
             if(!player.hasPermission("modtools.use")){
-                player.sendMessage(prefix + "§4You can't use that tool!");
+                player.sendMessage(prefix + DARK_RED + ",You can't use that tool!");
                 player.getInventory().getItemInMainHand().setAmount(0);
                 return;
             }

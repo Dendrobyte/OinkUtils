@@ -9,6 +9,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static org.bukkit.ChatColor.*;
+
 public class SubmitCommand implements CommandExecutor {
     private String prefix;
 
@@ -16,23 +18,24 @@ public class SubmitCommand implements CommandExecutor {
         this.prefix = Main.getInstance().getPrefix();
     }
 
-    private static HashMap<Player, String> submitConfirmations = new HashMap();
+    private static HashMap<Player, String> submitConfirmations = new HashMap<>();
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = (Player)sender;
+
         if (!(sender instanceof Player)) {
-            sender.sendMessage("§cSorry, you must be a player to use this command!");
+            sender.sendMessage(RED+"Sorry, you must be a player to use this command!");
             return true;
         }
+        Player player = (Player)sender;
         if (command.getName().equalsIgnoreCase("submit")) {
             if (args.length == 0) {
                 sender.sendMessage(prefix + "Too few arguments provided!");
-                sender.sendMessage(prefix + "Use §a/submit builder §7for Builder submissions, §a/submit redstone §7for Redstone Rank submissions, or §a/submit parkour§7 for parkour map submissions.");
+                sender.sendMessage(prefix + "Use " + GREEN +"/submit builder " + GRAY + "for Builder submissions, "+ GREEN +"/submit redstone "+GRAY+"for Redstone Rank submissions, or "+ GREEN+"/submit parkour"+ GRAY +" for parkour map submissions.");
                 return true;
             }
             if (args.length > 3) {
                 sender.sendMessage(prefix + "Too many arguments provided!");
-                sender.sendMessage(prefix + "Use §a/submit builder §7for Builder submissions, §a/submit redstone §7for Redstone Rank submissions, or §a/submit parkour§7 for parkour map submissions.");
+            sender.sendMessage(prefix + "Use "+GREEN+"/submit builder "+GRAY+"for Builder submissions, "+GREEN+"/submit redstone "+GRAY+"for Redstone Rank submissions, or "+GREEN+"/submit parkour"+GRAY+" for parkour map submissions.");
                 return true;
             }
             if (args[0].equalsIgnoreCase("builder")) {
@@ -94,7 +97,7 @@ public class SubmitCommand implements CommandExecutor {
                 return true;
             }
             if ((args[0].equalsIgnoreCase("reload")) && (!sender.hasPermission("mibutils.submissions.reload"))) {
-                sender.sendMessage(prefix + "You do not have access to §cmibutils.submissions.reload");
+                sender.sendMessage(prefix + "You do not have access to "+RED+"mibutils.submissions.reload");
                 return true;
             }
             if ((args[0].equalsIgnoreCase("remove")) && (sender.hasPermission("mibutils.submissions.remove"))) {
@@ -109,11 +112,11 @@ public class SubmitCommand implements CommandExecutor {
                             builderNames.remove(args[1]);
                             Main.getInstance().getSubmissions().set("submissions.builder", builderNames);
                             Main.getInstance().saveSubmissions();
-                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the §2§lbuilder list.");
+                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the "+DARK_GREEN+BOLD+"builder list.");
                             return true;
                         }
                         if (!builderNames.contains(args[1])) {
-                            player.sendMessage(prefix + "Could you not find " + args[1] + " in the §2§lbuilder list.");
+                            player.sendMessage(prefix + "Could you not find " + args[1] + " in the "+DARK_GREEN+BOLD+"Builder list.");
                             return true;
                         }
                         return true;
@@ -124,11 +127,11 @@ public class SubmitCommand implements CommandExecutor {
                             redstoneNames.remove(args[1]);
                             Main.getInstance().getSubmissions().set("submissions.redstone", redstoneNames);
                             Main.getInstance().saveSubmissions();
-                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the §4§lredstone list.");
+                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the "+RED+BOLD+"redstone list.");
                             return true;
                         }
                         if (!redstoneNames.contains(args[1])) {
-                            player.sendMessage(prefix + "Could not find " + args[1] + " in the §4§lredstone list.");
+                            player.sendMessage(prefix + "Could not find " + args[1] + " in the "+RED+BOLD+"redstone list.");
                             return true;
                         }
                         return true;
@@ -139,11 +142,11 @@ public class SubmitCommand implements CommandExecutor {
                             parkourNames.remove(args[1]);
                             Main.getInstance().getSubmissions().set("submissions.parkour", parkourNames);
                             Main.getInstance().saveSubmissions();
-                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the §7§lparkour list.");
+                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the "+GRAY+BOLD+"parkour list.");
                             return true;
                         }
                         if (!parkourNames.contains(args[1])) {
-                            player.sendMessage(prefix + "Could not find " + args[1] + " in the §7§lparkour list.");
+                            player.sendMessage(prefix + "Could not find " + args[1] + " in the "+GRAY+BOLD+"parkour list.");
                             return true;
                         }
                     }
@@ -191,11 +194,11 @@ public class SubmitCommand implements CommandExecutor {
                 }
             }
             if ((args[0].equalsIgnoreCase("list")) && (!sender.hasPermission("mibutils.submissions.list"))) {
-                sender.sendMessage(prefix + "You do not have access to §cmibutils.submissions.list");
+                sender.sendMessage(prefix + "You do not have access to "+RED+"mibutils.submissions.list");
                 return true;
             }
             if ((args[0].equalsIgnoreCase("remove")) && (!sender.hasPermission("mibutils.submissions.remove"))) {
-                sender.sendMessage(prefix + "You do not have access to §cmibutils.submissions.remove");
+                sender.sendMessage(prefix + "You do not have access to "+RED+"mibutils.submissions.remove");
                 return true;
             }
         }

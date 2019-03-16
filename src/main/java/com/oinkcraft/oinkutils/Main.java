@@ -25,8 +25,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import static org.bukkit.ChatColor.*;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -35,7 +36,7 @@ import java.util.logging.Level;
 public class Main extends JavaPlugin {
 
     // Prefix for the plugin
-    private String prefix = "§8[§dOinkUtils§8]§d ";
+    private String prefix = DARK_GRAY + "[" + LIGHT_PURPLE + "OinkUtils" + DARK_GRAY + "] " + LIGHT_PURPLE;
 
     private static Main main;
     // ClockBreaker thing
@@ -115,7 +116,7 @@ public class Main extends JavaPlugin {
     }
 
     /* For the compass nav component - I don't want to make a new class */
-    public ItemStack navCompass(){
+    public ItemStack navCompass() {
         ItemStack compass = new ItemStack(Material.COMPASS, 1);
         ItemMeta compassMeta = compass.getItemMeta();
         compassMeta.setDisplayName("" + ChatColor.LIGHT_PURPLE + ChatColor.BOLD + "Oinkcraft Navigator");
@@ -123,8 +124,9 @@ public class Main extends JavaPlugin {
         compass.setItemMeta(compassMeta);
         return compass;
     }
+
     /* For the ClockBreaker hashmap above */
-    public static HashMap<Player, Integer> getClockBreakerClicks(){
+    public static HashMap<Player, Integer> getClockBreakerClicks() {
         return clockBreakerClicks;
     }
 
@@ -132,20 +134,20 @@ public class Main extends JavaPlugin {
     private void createSubmissionYML() {
         // Factions config file
         submissionsf = new File(getDataFolder(), "submissions.yml");
-        if(!submissionsf.exists()){
+        if (!submissionsf.exists()) {
             getLogger().log(Level.INFO, "No submissions file found... Generating now!");
             saveResource("submissions.yml", false);
         }
         submissions = new YamlConfiguration();
         try {
             submissions.load(submissionsf);
-        } catch (IOException | InvalidConfigurationException e){
+        } catch (IOException | InvalidConfigurationException e) {
             System.out.println(prefix + "Something has gone wrong with the submissions.yml!");
             e.printStackTrace();
         }
     }
 
-    public FileConfiguration getSubmissions(){
+    public FileConfiguration getSubmissions() {
         return this.submissions;
     }
 
@@ -155,8 +157,7 @@ public class Main extends JavaPlugin {
         }
         try {
             getSubmissions().save(this.submissionsf);
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             getLogger().log(Level.SEVERE, "Could not save config to " + this.submissions, ex);
         }
     }

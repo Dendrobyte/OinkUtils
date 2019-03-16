@@ -7,6 +7,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import static org.bukkit.ChatColor.*;
+
 import java.util.ArrayList;
 
 /**
@@ -26,8 +28,8 @@ public class SpawnNavInventory {
                 "" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Oinkcraft Nav " + ChatColor.GRAY + ChatColor.ITALIC + "- Click to warp!");
         ItemStack redstone = new ItemStack(Material.GRASS);
         ItemMeta redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§b§lCreative Plots");
-        ArrayList<String> redstoneLore = new ArrayList();
+        redstoneMeta.setDisplayName("" + AQUA + BOLD + "Creative Plots");
+        ArrayList<String> redstoneLore = new ArrayList<>();
         redstoneLore.add("Teleport to the creative world!");
         redstoneLore.add("Plots are 101x101!");
         redstoneMeta.setLore(redstoneLore);
@@ -35,8 +37,8 @@ public class SpawnNavInventory {
         hubInv.setItem(0, redstone);
         redstone = new ItemStack(Material.STONE_AXE);
         redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§a§l§mPeaceful Survival/Towny");
-        redstoneLore = new ArrayList();
+        redstoneMeta.setDisplayName("" + GREEN + BOLD + STRIKETHROUGH + "Peaceful Survival/Towny");
+        redstoneLore = new ArrayList<>();
         redstoneLore.add("Teleport to the towny world!");
         redstoneLore.add("Coming late February 2019");
         redstoneMeta.setLore(redstoneLore);
@@ -44,8 +46,8 @@ public class SpawnNavInventory {
         hubInv.setItem(2, redstone);
         redstone = new ItemStack(Material.GOLDEN_SWORD);
         redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§6§lFour Civilizations");
-        redstoneLore = new ArrayList();
+        redstoneMeta.setDisplayName("" + GOLD + BOLD + "Four Civilizations");
+        redstoneLore = new ArrayList<>();
         //redstoneLore.add("Teleport to the factions world!");
         redstoneLore.add("Join an ancient civilization to");
         redstoneLore.add("help rule the new world!");
@@ -54,8 +56,8 @@ public class SpawnNavInventory {
         hubInv.setItem(4, redstone);
         redstone = new ItemStack(Material.RABBIT_FOOT);
         redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§d§lParkour");
-        redstoneLore = new ArrayList();
+        redstoneMeta.setDisplayName("" + LIGHT_PURPLE + BOLD + "Parkour");
+        redstoneLore = new ArrayList<>();
         redstoneLore.add("Teleport to the parkour world!");
         redstoneLore.add("All maps are made by players!");
         redstoneMeta.setLore(redstoneLore);
@@ -63,19 +65,20 @@ public class SpawnNavInventory {
         hubInv.setItem(6, redstone);
         redstone = new ItemStack(Material.POTION);
         redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§8§lMinigames");
-        redstoneLore = new ArrayList();
-        redstoneLore.add("§a§lCurrent Games");
-        redstoneLore.add("§b§oCauldron§c§oWars");
-        redstoneLore.add("§6§lRocket§3§lBow");
-        redstoneLore.add("§8§l2 §8§l§kPu§r§8§lz§8§l§kzl§r§8§le §r§7§o(Soon™!)");
+        redstoneMeta.setDisplayName("" + DARK_GRAY + BOLD + "Minigames");
+        redstoneLore = new ArrayList<>();
+        redstoneLore.add("" + GREEN + BOLD + "Current Games");
+        redstoneLore.add("" + AQUA + ITALIC + "Cauldron" + RED + BOLD + "Wars");
+        redstoneLore.add("" + GOLD + BOLD + "Rocket" + DARK_AQUA + BOLD + "Bow");
+        redstoneLore.add("" + DARK_GRAY + BOLD + "2 " + DARK_GRAY + BOLD + MAGIC + "Pu" + RESET + DARK_GRAY + BOLD +
+                "z" + DARK_GRAY + BOLD + MAGIC + "zl" + RESET + DARK_GRAY + BOLD + "e " + RESET + GRAY + ITALIC + "(Soon™!)");
         redstoneMeta.setLore(redstoneLore);
         redstone.setItemMeta(redstoneMeta);
         hubInv.setItem(8, redstone);
         redstone = new ItemStack(Material.SPRUCE_LOG);
         redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§5§lDonation/VIP Plots");
-        redstoneLore = new ArrayList();
+        redstoneMeta.setDisplayName("" + DARK_PURPLE + BOLD + "Donation/VIP Plots");
+        redstoneLore = new ArrayList<>();
         redstoneLore.add("Larger 200x200 plots!");
         redstoneLore.add("§5Available for donators only.");
         redstoneMeta.setLore(redstoneLore);
@@ -83,19 +86,19 @@ public class SpawnNavInventory {
         hubInv.setItem(11, redstone);
         redstone = new ItemStack(Material.MYCELIUM);
         redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§3§lAdvanced Builder World(s)");
-        redstoneLore = new ArrayList();
+        redstoneMeta.setDisplayName("" + DARK_AQUA + BOLD + "Advanced Builder World(s)");
+        redstoneLore = new ArrayList<>();
         redstoneLore.add("Flatland and normal open worlds!");
-        redstoneLore.add("§3Available only for Advanced Builders (not a donation rank)");
+        redstoneLore.add("" + DARK_AQUA + "Available only for Advanced Builders (not a donation rank)");
         redstoneMeta.setLore(redstoneLore);
         redstone.setItemMeta(redstoneMeta);
         hubInv.setItem(13, redstone);
         redstone = new ItemStack(Material.REDSTONE_BLOCK);
         redstoneMeta = redstone.getItemMeta();
-        redstoneMeta.setDisplayName("§4§lRedstone World");
-        redstoneLore = new ArrayList();
+        redstoneMeta.setDisplayName("" + DARK_RED + BOLD + "Redstone World");
+        redstoneLore = new ArrayList<>();
         redstoneLore.add("Open flatland world for redstone!");
-        redstoneLore.add("§4Available only to those of the Redstone Rank (not a donation rank)");
+        redstoneLore.add(DARK_RED + "Available only to those of the Redstone Rank (not a donation rank)");
         redstoneMeta.setLore(redstoneLore);
         redstone.setItemMeta(redstoneMeta);
         hubInv.setItem(15, redstone);

@@ -5,6 +5,8 @@ import org.bukkit.entity.*;
 
 import java.util.List;
 
+import static org.bukkit.ChatColor.*;
+
 /**
  * OinkUtils created/started by Mark Bacon (Mobkinz78 or ByteKangaroo) on 12/7/2018
  * Please do not use or edit without permission! (Being on GitHub counts as permission)
@@ -13,7 +15,7 @@ import java.util.List;
  */
 public class ModToolsManager {
     private static ModToolsManager instance = new ModToolsManager();
-    private String prefix = "§8[§3ModTools§8]§b ";
+    private String prefix = DARK_GRAY + "[" + LIGHT_PURPLE + "OinkUtils" + DARK_GRAY + "] " + LIGHT_PURPLE;
 
     private ModToolsManager() {
     }
