@@ -18,7 +18,7 @@ public class CompassClickListener implements Listener {
 
     @EventHandler
     public void onPlayerRightClickCompass(PlayerInteractEvent event){
-        String world = "world";
+        String world = Main.getInstance().getConfig().getString("spawn-world");
         Player player = event.getPlayer();
         if(event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) return; // Do nothing if they're not right clicking
         if(!player.getWorld().getName().equalsIgnoreCase(world)) return; // Don't check anything if it isn't the spawn world
@@ -28,6 +28,7 @@ public class CompassClickListener implements Listener {
 
         // They've right clicked with the special nav compass. Now open an inventory of items.
         player.openInventory(SpawnNavInventory.getNavInventory());
+        event.setCancelled(true);
     }
 
 }

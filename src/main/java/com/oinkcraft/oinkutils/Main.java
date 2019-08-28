@@ -2,6 +2,7 @@ package com.oinkcraft.oinkutils;
 
 import com.oinkcraft.oinkutils.chatcolorchange.ChatColorChangeListener;
 import com.oinkcraft.oinkutils.chatcolorchange.ColorChangeCommand;
+import com.oinkcraft.oinkutils.compassnav.SpawnNavInventory;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.ClockBreakInventoryMoveListener;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.ClockBreakListener;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.ClockBreakerDropListener;
@@ -12,6 +13,8 @@ import com.oinkcraft.oinkutils.compassnav.PlayerGiveCompassListener;
 import com.oinkcraft.oinkutils.redstoneworld.NoTNT;
 import com.oinkcraft.oinkutils.submission.JoinNotificationListener;
 import com.oinkcraft.oinkutils.submission.SubmitCommand;
+import com.oinkcraft.oinkutils.voting.VoteCommand;
+import com.oinkcraft.oinkutils.voting.VoteListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -62,6 +65,7 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerGiveCompassListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new CompassClickListener(), this);
+        SpawnNavInventory.initializeInventory();
         // ChatColorChange
         Bukkit.getServer().getPluginManager().registerEvents(new ChatColorChangeListener(), this);
         // ModTools/ClockBreaker
@@ -72,6 +76,8 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new JoinNotificationListener(), this);
         // NoTNT
         Bukkit.getServer().getPluginManager().registerEvents(new NoTNT(), this);
+        // Vote
+        Bukkit.getServer().getPluginManager().registerEvents(new VoteListener(), this);
 
         /* Register commands */
         // Oink utils base
@@ -83,6 +89,8 @@ public class Main extends JavaPlugin {
         getCommand("sneeze").setExecutor(new CommandBase());
         // Submissions
         getCommand("submit").setExecutor(new SubmitCommand());
+        // Voting
+        getCommand("vote").setExecutor(new VoteCommand());
 
         getLogger().log(Level.INFO, "OinkUtils v" + getDescription().getVersion() + " has successfully been enabled!");
     }

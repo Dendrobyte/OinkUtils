@@ -22,6 +22,9 @@ commands:
   submit:
     description: Submit for builder, redstone, or parkour
     usage: /submit
+  vote:
+    description: Vote command to list links
+    usage: /vote
 permissions:
   oinkutils.admin:
     description: No need for a command yet, so...

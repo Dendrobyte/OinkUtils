@@ -7,6 +7,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.ItemStack;
@@ -24,11 +25,10 @@ public class PlayerGiveCompassListener implements Listener {
     public void onPlayerTeleport(PlayerTeleportEvent event) {
         Player player = event.getPlayer();
         String world = Main.getInstance().getConfig().getString("spawn-world");
-        if (!player.getWorld().getName().equalsIgnoreCase(world)) return; // Do nothing if it isn't the spawn world
-
-        // Give compass
-        player.getInventory().setItem(0, Main.getInstance().navCompass());
-
+        if (event.getFrom().getWorld().getName().equalsIgnoreCase(world)) {
+            // Give compass
+            player.getInventory().setItem(0, Main.getInstance().navCompass());
+        }
     }
 
     @EventHandler
@@ -40,6 +40,18 @@ public class PlayerGiveCompassListener implements Listener {
             player.getInventory().setItem(0, Main.getInstance().navCompass());
         }
 
+    }
+
+    @EventHandler
+    public void playerDropCompass(PlayerDropItemEvent event){
+        Player player = event.getPlayer();
+        if (player.getWorld().getName().equals("world")) {
+            if(event.getItemDrop().getItemStack().equals(Main.getInstance().navCompass())){
+                // Prevent compass from being dropped
+                event.setCancelled(true);
+            }
+
+        }
     }
 
 }

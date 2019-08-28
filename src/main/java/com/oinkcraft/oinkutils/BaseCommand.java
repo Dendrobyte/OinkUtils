@@ -1,5 +1,6 @@
 package com.oinkcraft.oinkutils;
 
+import com.oinkcraft.oinkutils.compassnav.SpawnNavInventory;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,6 +20,14 @@ public class BaseCommand implements CommandExecutor {
         Player player = (Player) sender;
         if(command.getName().equalsIgnoreCase("oinkutils")){
             player.sendMessage(prefix + LIGHT_PURPLE + BOLD +"OINK!");
+            if(!player.hasPermission("oinkutils.admin")) return true;
+            if(args.length == 0) return true;
+            if(args[0].equalsIgnoreCase("reload")){
+                Main.getInstance().reloadConfig();
+                Main.getInstance().saveConfig();
+                SpawnNavInventory.initializeInventory();
+                player.sendMessage(prefix + "OinkUtils configuration reloaded.");
+            }
         }
         return true;
     }

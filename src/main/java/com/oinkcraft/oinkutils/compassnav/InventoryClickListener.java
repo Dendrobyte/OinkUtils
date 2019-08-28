@@ -1,8 +1,7 @@
 package com.oinkcraft.oinkutils.compassnav;
 
 import com.oinkcraft.oinkutils.Main;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,75 +22,27 @@ public class InventoryClickListener implements Listener {
     private Main main = Main.getInstance();
     String prefix = main.getPrefix();
 
-    public InventoryClickListener() {
-    }
-
     @EventHandler
     public void onClickEvent(InventoryClickEvent event) {
         HumanEntity humanEntity = event.getWhoClicked();
         Player player = (Player) humanEntity;
-        if (humanEntity != null && event.getInventory().getName().equalsIgnoreCase(SpawnNavInventory.getNavInventory().getName())) {
+        if (humanEntity != null && event.getView().getTitle().equalsIgnoreCase(SpawnNavInventory.getInvName())) {
             event.setCancelled(true);
             ItemStack itemClicked = event.getCurrentItem();
-            if (itemClicked != null) {
-                if (itemClicked.getType() == Material.GRASS) {
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp creative " + player.getName());
-                    player.sendMessage(prefix + DARK_GREEN + ITALIC + "Warping to the creative world...");
-                    return;
-                }
-
-                if (itemClicked.getType() == Material.STONE_AXE) {
-                    // TODO: Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp towny " + player.getName());
-                    // player.sendMessage(prefix + DARK_GREEN "§2§oWarping to the towny world...");
-                    player.sendMessage(prefix + "This world is currently closed due to the 1.13.2 update. Sorry!");
-                    return;
-                }
-
-                if (itemClicked.getType() == Material.DIAMOND_SWORD) {
-                    // TODO: Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp factions " + player.getName());
-                    // player.sendMessage(prefix + "§2§oWarping to the factions world...");
-                    player.sendMessage(prefix + "This world is currently closed due to the 1.13.2 update. Sorry!");
-                    return;
-                }
-
-                if (itemClicked.getType() == Material.GOLDEN_SWORD) {
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp fourfac " + player.getName());
-                    player.sendMessage(prefix + DARK_GREEN + ITALIC + "Warping to the Four Factions world...");
-                    return;
-                }
-
-                if (itemClicked.getType() == Material.RABBIT_FOOT) {
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp parkour " + player.getName());
-                    player.sendMessage(prefix + DARK_GREEN + ITALIC+"Warping to the parkour world...");
-                    return;
-                }
-
-                if (itemClicked.getType() == Material.POTION) {
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp minigames " + player.getName());
-                    player.sendMessage(prefix + GRAY + BOLD +"Warping to the minigames lobby...");
-                    return;
-                }
-
-                if (itemClicked.getType() == Material.SPRUCE_LOG) {
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp donationplots " + player.getName());
-                    player.sendMessage(prefix + DARK_GREEN + ITALIC +"Warping to the donation plot world...");
-                    return;
-                }
-
-                if (itemClicked.getType() == Material.MYCELIUM) {
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp advbuilder " + player.getName());
-                    player.sendMessage(prefix + DARK_GREEN + ITALIC+"Warping to the Advanced Builder world...");
-                    return;
-                }
-
-                if (itemClicked.getType() == Material.REDSTONE_BLOCK) {
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "warp redstone " + player.getName());
-                    player.sendMessage(prefix + DARK_GREEN+ITALIC+ "Warping to the Redstone flatland world...");
-                    return;
-                }
+            event.setCancelled(true);
+            if(itemClicked.getType() == Material.GRAY_STAINED_GLASS_PANE) return;
+            // Destination - WORLDNAME
+            String destinationLore = ChatColor.stripColor(itemClicked.getItemMeta().getLore().get(itemClicked.getItemMeta().getLore().size()-1));
+            String worldDestination = destinationLore.substring(13);
+            try {
+                World worldToSendPlayer = Bukkit.getWorld(worldDestination);
+                player.teleport(worldToSendPlayer.getSpawnLocation());
+                player.sendMessage(prefix + GRAY + "Warping to " + DARK_PURPLE + BOLD + worldDestination + "...");
+                player.playSound(player.getLocation(), Sound.ITEM_CHORUS_FRUIT_TELEPORT, 8, 1);
+            } catch (NullPointerException e){
+                player.sendMessage(prefix + ChatColor.RED + "It appears something went wrong! Contact an staff member.");
             }
         }
 
     }
-
 }
