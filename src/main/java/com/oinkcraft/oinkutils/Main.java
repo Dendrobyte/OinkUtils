@@ -3,6 +3,7 @@ package com.oinkcraft.oinkutils;
 import com.oinkcraft.oinkutils.chatcolorchange.ChatColorChangeListener;
 import com.oinkcraft.oinkutils.chatcolorchange.ColorChangeCommand;
 import com.oinkcraft.oinkutils.compassnav.SpawnNavInventory;
+import com.oinkcraft.oinkutils.modtools.PreventVisitorMobPlacementListener;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.ClockBreakInventoryMoveListener;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.ClockBreakListener;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.ClockBreakerDropListener;
@@ -10,6 +11,7 @@ import com.oinkcraft.oinkutils.modtools.CommandBase;
 import com.oinkcraft.oinkutils.compassnav.CompassClickListener;
 import com.oinkcraft.oinkutils.compassnav.InventoryClickListener;
 import com.oinkcraft.oinkutils.compassnav.PlayerGiveCompassListener;
+import com.oinkcraft.oinkutils.portals.NetherPortalListener;
 import com.oinkcraft.oinkutils.redstoneworld.NoTNT;
 import com.oinkcraft.oinkutils.submission.JoinNotificationListener;
 import com.oinkcraft.oinkutils.submission.SubmitCommand;
@@ -78,6 +80,10 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new NoTNT(), this);
         // Vote
         Bukkit.getServer().getPluginManager().registerEvents(new VoteListener(), this);
+        // Portals
+        Bukkit.getServer().getPluginManager().registerEvents(new NetherPortalListener(), this);
+        // Prevent spawn egg placement
+        Bukkit.getServer().getPluginManager().registerEvents(new PreventVisitorMobPlacementListener(), this);
 
         /* Register commands */
         // Oink utils base

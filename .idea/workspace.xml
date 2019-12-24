@@ -6,37 +6,16 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/OinkUtils.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/nuvotifier_2_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/voting/VoteCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/voting/VoteListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/OinkUtils_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/OinkUtils_jar.xml" afterDir="false" />
+    <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="Voting working!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/PreventVisitorMobPlacementListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/portals/NetherPortalListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/BaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/BaseCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/compassnav/CompassClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/compassnav/CompassClickListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/compassnav/InventoryClickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/compassnav/InventoryClickListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/compassnav/PlayerGiveCompassListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/compassnav/PlayerGiveCompassListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/compassnav/SpawnNavInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/compassnav/SpawnNavInventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/BaseCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/BaseCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/chatcolorchange/ChatColorChangeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/chatcolorchange/ChatColorChangeListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/chatcolorchange/ColorChangeCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/chatcolorchange/ColorChangeCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/CompassClickListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/CompassClickListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/InventoryClickListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/InventoryClickListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/PlayerGiveCompassListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/PlayerGiveCompassListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/SpawnNavInventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/SpawnNavInventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/CommandBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/CommandBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/ModToolsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/ModToolsManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/BreakerItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/BreakerItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakInventoryMoveListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakInventoryMoveListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/submission/SubmitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/submission/SubmitCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
@@ -70,8 +49,8 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MC TESTING SERVER (1.14.4)/plugins/nuvotifier-2.5.3.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -98,8 +77,24 @@
       <workItem from="1566953689298" duration="7086000" />
       <workItem from="1567001357709" duration="1728000" />
       <workItem from="1567003348261" duration="3633000" />
-      <workItem from="1567007685660" duration="1291000" />
+      <workItem from="1567007685660" duration="1943000" />
+      <workItem from="1567019686566" duration="216000" />
+      <workItem from="1567394746509" duration="790000" />
+      <workItem from="1573870227795" duration="272000" />
+      <workItem from="1573870627342" duration="348000" />
+      <workItem from="1573871180203" duration="191000" />
+      <workItem from="1573871391568" duration="2077000" />
+      <workItem from="1576271292172" duration="6000" />
+      <workItem from="1577146114905" duration="19000" />
     </task>
+    <task id="LOCAL-00001" summary="Voting working!">
+      <created>1567009941546</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567009941546</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,5 +112,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Voting working!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Voting working!" />
   </component>
 </project>

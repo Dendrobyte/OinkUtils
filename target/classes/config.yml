@@ -1,6 +1,7 @@
 # Main spawn world used for compass navigation
 spawn-world: world
 redstone-world: redstonerank
+creative-world: plotworld
 
 # You can't leave the default one here! Replace it with all fields.
 # Ensure you have valid world names!
