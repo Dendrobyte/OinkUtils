@@ -4,7 +4,11 @@ import com.oinkcraft.oinkutils.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.bukkit.ChatColor.DARK_GRAY;
 import static org.bukkit.ChatColor.YELLOW;
@@ -15,7 +19,7 @@ import static org.bukkit.ChatColor.YELLOW;
  * If you have any questions, reach out to me on Twitter: @Mobkinz78
  * §
  */
-public class VoteCommand implements CommandExecutor {
+public class VoteCommand implements CommandExecutor, TabCompleter {
 
     String prefix = DARK_GRAY + "[" + YELLOW + "OinkVote" + DARK_GRAY +"] " + YELLOW;
     Main instance = Main.getInstance();
@@ -53,5 +57,15 @@ public class VoteCommand implements CommandExecutor {
             return true;
         }
         return true;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+        List<String> tabCompleteList = new ArrayList<>();
+        if (commandSender.hasPermission("oinkutils.admin") && strings.length == 1) {
+            tabCompleteList.add("reload");
+            tabCompleteList.removeIf(itm -> !itm.startsWith(strings[0]));
+        }
+        return tabCompleteList;
     }
 }

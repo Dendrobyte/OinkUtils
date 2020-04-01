@@ -20,6 +20,8 @@ import com.oinkcraft.oinkutils.voting.VoteListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -87,19 +89,16 @@ public class Main extends JavaPlugin {
 
         /* Register commands */
         // Oink utils base
-        getCommand("oinkutils").setExecutor(new BaseCommand());
-        getCommand("oinkutils").setTabCompleter(new BaseCommand());
+        registerCommand("oinkutils", new BaseCommand());
         // ChatColorChange
-        getCommand("chatcolorchange").setExecutor(new ColorChangeCommand());
-        getCommand("chatcolorchange").setTabCompleter(new ColorChangeCommand());
+        registerCommand("chatcolorchange", new ColorChangeCommand());
         // Modtools
-        getCommand("modtools").setExecutor(new CommandBase());
-        getCommand("sneeze").setExecutor(new CommandBase());
+        registerCommand("modtools", new CommandBase());
+        registerCommand("sneeze", new CommandBase());
         // Submissions
-        getCommand("submit").setExecutor(new SubmitCommand());
-        getCommand("submit").setTabCompleter(new SubmitCommand());
+        registerCommand("submit", new SubmitCommand());
         // Voting
-        getCommand("vote").setExecutor(new VoteCommand());
+        registerCommand("vote", new VoteCommand());
 
         getLogger().log(Level.INFO, "OinkUtils v" + getDescription().getVersion() + " has successfully been enabled!");
     }
@@ -190,6 +189,11 @@ public class Main extends JavaPlugin {
             YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(new File(getDataFolder(), "submissions.yml"));
             this.submissions.setDefaults(defConfig);
         }
+    }
+
+    public void registerCommand(String command, TabCompleter commandInstance) {
+        getCommand(command).setExecutor((CommandExecutor) commandInstance);
+        getCommand(command).setTabCompleter(commandInstance);
     }
 
 }

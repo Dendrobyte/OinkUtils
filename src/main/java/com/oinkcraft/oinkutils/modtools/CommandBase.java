@@ -7,11 +7,14 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import static org.bukkit.ChatColor.*;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -22,7 +25,7 @@ import java.util.List;
  * Contact me on Twitter, @Mobkinz78
  * §
  */
-public class CommandBase implements CommandExecutor {
+public class CommandBase implements CommandExecutor, TabCompleter {
 
     String prefix = ModToolsManager.getInstance().getPrefix();
 
@@ -113,4 +116,23 @@ public class CommandBase implements CommandExecutor {
         return;
     }
 
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+        List<String> tabCompleteList = new ArrayList<>();
+        if (cmd.getName().equalsIgnoreCase("modtools") && sender.hasPermission("modtools.use")) {
+            if (args.length != 1) return null;
+            tabCompleteList.add("help");
+            tabCompleteList.add("clockbreaker");
+            tabCompleteList.removeIf(itm -> !itm.startsWith(args[0]));
+        } else if (cmd.getName().equalsIgnoreCase("sneeze") && sender.hasPermission("modtools.use")) {
+            if (args.length != 1) return null;
+            tabCompleteList.add("5");
+            tabCompleteList.add("10");
+            tabCompleteList.add("20");
+            tabCompleteList.add("40");
+            tabCompleteList.add("80");
+            tabCompleteList.removeIf(itm -> !itm.startsWith(args[0]));
+        }
+        return tabCompleteList;
+    }
 }
