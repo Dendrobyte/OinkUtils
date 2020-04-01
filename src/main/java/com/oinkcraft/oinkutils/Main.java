@@ -95,6 +95,7 @@ public class Main extends JavaPlugin {
         getCommand("sneeze").setExecutor(new CommandBase());
         // Submissions
         getCommand("submit").setExecutor(new SubmitCommand());
+        getCommand("submit").setTabCompleter(new SubmitCommand());
         // Voting
         getCommand("vote").setExecutor(new VoteCommand());
 
