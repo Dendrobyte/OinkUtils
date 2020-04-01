@@ -88,6 +88,7 @@ public class Main extends JavaPlugin {
         /* Register commands */
         // Oink utils base
         getCommand("oinkutils").setExecutor(new BaseCommand());
+        getCommand("oinkutils").setTabCompleter(new BaseCommand());
         // ChatColorChange
         getCommand("chatcolorchange").setExecutor(new ColorChangeCommand());
         // Modtools

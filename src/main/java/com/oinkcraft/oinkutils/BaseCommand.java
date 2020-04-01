@@ -4,11 +4,15 @@ import com.oinkcraft.oinkutils.compassnav.SpawnNavInventory;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.bukkit.ChatColor.*;
 
-public class BaseCommand implements CommandExecutor {
+public class BaseCommand implements CommandExecutor, TabCompleter {
 
     String prefix = Main.getInstance().getPrefix();
 
@@ -32,4 +36,15 @@ public class BaseCommand implements CommandExecutor {
         return true;
     }
 
+    @Override
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+        List<String> tabCompleteList = new ArrayList<>();
+        if (strings.length == 1) {
+            if (commandSender.hasPermission("oinkutils.admin")) {
+                tabCompleteList.add("reload");
+                tabCompleteList.removeIf(itm -> itm.startsWith(strings[0]));
+            }
+        }
+        return  tabCompleteList;
+    }
 }

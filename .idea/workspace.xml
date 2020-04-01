@@ -7,28 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="Voting working!">
-      <change beforePath="$PROJECT_DIR$/.idea/OinkUtils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OinkUtils.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/OinkUtils_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/OinkUtils_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/submission/SubmitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/submission/SubmitCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/BaseCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/BaseCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/chatcolorchange/ChatColorChangeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/chatcolorchange/ChatColorChangeListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/chatcolorchange/ColorChangeCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/chatcolorchange/ColorChangeCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/CompassClickListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/CompassClickListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/InventoryClickListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/InventoryClickListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/PlayerGiveCompassListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/PlayerGiveCompassListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/SpawnNavInventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/compassnav/SpawnNavInventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/CommandBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/CommandBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/ModToolsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/ModToolsManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakInventoryMoveListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakInventoryMoveListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakerDropListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakerDropListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/redstoneworld/NoTNT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/redstoneworld/NoTNT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/submission/SubmitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/submission/SubmitCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/BaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/BaseCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,10 +114,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1585757392620" />
-    <state x="765" y="234" key="#com.intellij.ide.util.MemberChooser" timestamp="1585761578514">
+    <state x="765" y="234" key="#com.intellij.ide.util.MemberChooser" timestamp="1585765938074">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="765" y="234" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1585761578514" />
+    <state x="765" y="234" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1585765938074" />
     <state x="740" y="266" key="FileChooserDialogImpl" timestamp="1585757414348">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
