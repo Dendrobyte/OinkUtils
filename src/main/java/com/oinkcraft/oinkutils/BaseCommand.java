@@ -42,7 +42,7 @@ public class BaseCommand implements CommandExecutor, TabCompleter {
         if (strings.length == 1) {
             if (commandSender.hasPermission("oinkutils.admin")) {
                 tabCompleteList.add("reload");
-                tabCompleteList.removeIf(itm -> itm.startsWith(strings[0]));
+                tabCompleteList.removeIf(itm -> !itm.startsWith(strings[0]));
             }
         }
         return  tabCompleteList;

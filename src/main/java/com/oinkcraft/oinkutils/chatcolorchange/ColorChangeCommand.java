@@ -6,12 +6,13 @@ import com.oinkcraft.oinkutils.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import static org.bukkit.ChatColor.*;
 
-public class ColorChangeCommand implements CommandExecutor {
+public class ColorChangeCommand implements CommandExecutor, TabCompleter {
     String prefix = Main.getInstance().getPrefix();
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -24,7 +25,7 @@ public class ColorChangeCommand implements CommandExecutor {
             Player player = (Player)sender;
             ArrayList<String> validColors = new ArrayList<>();
             FileConfiguration config = Main.getInstance().getConfig();
-            validColors = this.initiateValidColors(validColors);
+            validColors = this.initiateValidColors();
             if (!player.hasPermission("oinkutils.colorchange")) {
                 player.sendMessage(this.prefix + "Sorry, no access! "+ RED +"Required permission: oinkutils.colorchange");
                 return false;
@@ -83,7 +84,7 @@ public class ColorChangeCommand implements CommandExecutor {
         return true;
     }
 
-    private ArrayList<String> initiateValidColors(ArrayList<String> list) {
+    private ArrayList<String> initiateValidColors() {
         ArrayList<String> validList = new ArrayList();
         validList.add("reset");
         validList.add("black");
@@ -103,5 +104,15 @@ public class ColorChangeCommand implements CommandExecutor {
         validList.add("yellow");
         validList.add("white");
         return validList;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
+        List<String> tabCompleteList = new ArrayList<>();
+        if (commandSender.hasPermission("oinkutils.colorchange") && strings.length == 1) {
+            tabCompleteList.addAll(this.initiateValidColors());
+            tabCompleteList.removeIf(itm -> !itm.startsWith(strings[0]));
+        }
+        return tabCompleteList;
     }
 }

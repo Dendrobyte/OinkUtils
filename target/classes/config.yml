@@ -1,0 +1,34 @@
+# Main spawn world used for compass navigation
+spawn-world: world
+redstone-world: redstonerank
+creative-world: plotworld
+
+# You can't leave the default one here! Replace it with all fields.
+# Ensure you have valid world names!
+nav-items:
+  name:
+    item-name:
+    item-material:
+    item-description:
+      - line1
+      - line2
+    destination-world-name:
+    slot-number:
+
+# Votifier links and rewards
+vote-links:
+  planet-minecraft: 'null'
+  mc-server-list: 'null'
+  mc-index: 'null'
+  minestatus: 'null'
+
+# World names must be the same as existing worlds!
+# Items must have no space between comma and amount.
+# Commands do not include the slash. Use %player& to get the player.
+vote-rewards:
+  world:
+    items:
+      - itemname,amount
+      - itemname2,amount2
+    commands:
+      - command1

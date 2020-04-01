@@ -91,6 +91,7 @@ public class Main extends JavaPlugin {
         getCommand("oinkutils").setTabCompleter(new BaseCommand());
         // ChatColorChange
         getCommand("chatcolorchange").setExecutor(new ColorChangeCommand());
+        getCommand("chatcolorchange").setTabCompleter(new ColorChangeCommand());
         // Modtools
         getCommand("modtools").setExecutor(new CommandBase());
         getCommand("sneeze").setExecutor(new CommandBase());
