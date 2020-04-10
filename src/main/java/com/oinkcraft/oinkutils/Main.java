@@ -3,6 +3,7 @@ package com.oinkcraft.oinkutils;
 import com.oinkcraft.oinkutils.chatcolorchange.ChatColorChangeListener;
 import com.oinkcraft.oinkutils.chatcolorchange.ColorChangeCommand;
 import com.oinkcraft.oinkutils.compassnav.SpawnNavInventory;
+import com.oinkcraft.oinkutils.creativespecmode.SpecModeTeleportListener;
 import com.oinkcraft.oinkutils.modtools.PreventVisitorMobPlacementListener;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.ClockBreakInventoryMoveListener;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.ClockBreakListener;
@@ -84,6 +85,8 @@ public class Main extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new NetherPortalListener(), this);
         // Prevent spawn egg placement
         Bukkit.getServer().getPluginManager().registerEvents(new PreventVisitorMobPlacementListener(), this);
+        // Adv builder / donor plotworld spectator mode listeners
+        Bukkit.getServer().getPluginManager().registerEvents(new SpecModeTeleportListener(), this);
 
         /* Register commands */
         // Oink utils base

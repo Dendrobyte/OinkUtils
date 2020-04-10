@@ -29,6 +29,7 @@ public class VoteListener implements Listener {
 
     @EventHandler
     public void onPlayerVote(VotifierEvent event){
+
         Vote vote = event.getVote();
         Player player = Bukkit.getPlayer(vote.getUsername());
         Bukkit.getServer().broadcastMessage(prefix + GREEN + vote.getUsername() + YELLOW + " just voted on " + GREEN + vote.getServiceName() + "!");
