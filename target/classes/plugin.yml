@@ -38,3 +38,5 @@ permissions:
     description: Allows players to place mob spawn eggs or not.
   oinkutils.advbuilder.build:
     description: Allows players to use creative gamemode and build in advanced builder (not turn into spectator)
+  oinkutils.redstone.build:
+    description: Allows players to use creative gamemode and build in redstone world (not turn into spectator)

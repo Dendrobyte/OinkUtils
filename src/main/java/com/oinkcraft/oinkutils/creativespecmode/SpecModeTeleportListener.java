@@ -37,8 +37,20 @@ public class SpecModeTeleportListener implements Listener {
                 }.runTaskLater(Main.getInstance(), 20L);
             }
         }
+        else if (to.getName().toLowerCase().contains("redstone")){
+            if(!player.hasPermission("oinkutils.redstone.build")) {
+                player.sendMessage("" + ChatColor.BLUE + ChatColor.ITALIC + "Welcome to the Redstone world. Enjoy the builds!");
+                BukkitTask quickTimer = new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        player.setGameMode(GameMode.SPECTATOR);
+                    }
+                }.runTaskLater(Main.getInstance(), 20L);
+            }
+        }
 
-        if(from.getName().toLowerCase().contains(advBuilderString)){
+        // TODO: Add cases for non-spectator modes (i.e. adv builder teleporting out of advbuilder world)
+        if(from.getName().toLowerCase().contains(advBuilderString) || from.getName().toLowerCase().contains("redstone")){
             String spawnWorldName = Main.getInstance().getConfig().getString("spawn-world");
             if(!to.getName().equalsIgnoreCase(spawnWorldName)){
                 player.teleport(Bukkit.getServer().getWorld(spawnWorldName).getSpawnLocation());

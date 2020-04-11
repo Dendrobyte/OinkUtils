@@ -66,7 +66,6 @@ public class VoteListener implements Listener {
             if(cmd.contains("%")){
                 String modifiedCmd = cmd.substring(0, cmd.indexOf("%")) + player.getName() + cmd.substring(cmd.indexOf("&")+1);
                 Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), modifiedCmd);
-                return;
             } else {
                 Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), cmd);
             }

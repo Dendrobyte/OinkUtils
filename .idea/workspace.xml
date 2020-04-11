@@ -7,8 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/voting/VoteListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/voting/VoteListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +88,9 @@
       <workItem from="1586524271010" duration="13000" />
       <workItem from="1586525526657" duration="2241000" />
       <workItem from="1586532089535" duration="2197000" />
-      <workItem from="1586534632914" duration="989000" />
+      <workItem from="1586534632914" duration="1278000" />
+      <workItem from="1586635629907" duration="411000" />
+      <workItem from="1586639151016" duration="437000" />
     </task>
     <task id="LOCAL-00001" summary="Voting working!">
       <created>1567009941546</created>
@@ -105,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586534243960</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Teleportation disabled if outside adv worlds">
+      <created>1586558293571</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586558293571</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +143,7 @@
     <MESSAGE value="Voting working!" />
     <MESSAGE value="Something about mob placement by visitors!" />
     <MESSAGE value="Spectator mode for non adv builders in advbuilder world(s)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spectator mode for non adv builders in advbuilder world(s)" />
+    <MESSAGE value="Teleportation disabled if outside adv worlds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teleportation disabled if outside adv worlds" />
   </component>
 </project>
