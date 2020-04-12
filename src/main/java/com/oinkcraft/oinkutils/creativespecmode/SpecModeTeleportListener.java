@@ -21,10 +21,10 @@ public class SpecModeTeleportListener implements Listener {
     String advBuilderString = Main.getInstance().getConfig().getString("advbuilder-world");
 
     @EventHandler
-    public void onAdvBuilderWorldPlayerTeleport(PlayerChangedWorldEvent event){
+    public void onAdvBuilderWorldPlayerTeleport(PlayerTeleportEvent event){
         Player player = event.getPlayer();
-        World to = player.getWorld();
-        World from = event.getFrom();
+        World to = event.getTo().getWorld();
+        World from = event.getFrom().getWorld();
         // We only check the world they are arriving in because PerWorldInv / Multiverse should manage them leaving
         if(to.getName().toLowerCase().contains(advBuilderString)){
             if(!player.hasPermission("oinkutils.advbuilder.build")){
@@ -52,11 +52,17 @@ public class SpecModeTeleportListener implements Listener {
         // TODO: Add cases for non-spectator modes (i.e. adv builder teleporting out of advbuilder world)
         if(from.getName().toLowerCase().contains(advBuilderString) || from.getName().toLowerCase().contains("redstone")){
             String spawnWorldName = Main.getInstance().getConfig().getString("spawn-world");
+            if(bothAdvBuilderWorlds(from, to)) return;
             if(!to.getName().equalsIgnoreCase(spawnWorldName)){
+                event.setCancelled(true);
                 player.teleport(Bukkit.getServer().getWorld(spawnWorldName).getSpawnLocation());
                 player.sendMessage("" + ChatColor.GRAY + "You have been sent to the default spawn world as to avoid abuse of spectator mode teleportation.");
             }
         }
+    }
+
+    private boolean bothAdvBuilderWorlds(World from, World to){
+        return from.getName().contains(advBuilderString) && to.getName().contains(advBuilderString);
     }
 
 }

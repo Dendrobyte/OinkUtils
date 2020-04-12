@@ -30,12 +30,24 @@ public class SpecModeLoginLogoutListener implements Listener {
         World world = player.getWorld();
         if(world.getName().toLowerCase().contains(advBuilderString)){
             if(!player.hasPermission("oinkutils.advbuilder.build")){
-                player.sendMessage("" + ChatColor.BLUE + ChatColor.ITALIC + "Teleported to spawn after logging into Advanced Builder world to avoid spectator abuse.");
+                BukkitTask quickTimer = new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        player.setGameMode(GameMode.SPECTATOR);
+                        player.sendMessage("" + ChatColor.BLUE + ChatColor.ITALIC + "You've logged into the Adv Builder World, so we set your gamemode to spectator.");
+                    }
+                }.runTaskLater(Main.getInstance(), 20L);
             }
         }
         else if (world.getName().toLowerCase().contains("redstone")){
             if(!player.hasPermission("oinkutils.redstone.build")) {
-                player.sendMessage("" + ChatColor.BLUE + ChatColor.ITALIC + "Teleported to spawn after logging into Redstone world to avoid spectator abuse.");
+                BukkitTask quickTimer = new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        player.setGameMode(GameMode.SPECTATOR);
+                        player.sendMessage("" + ChatColor.BLUE + ChatColor.ITALIC + "You've logged into the redstone world, so we set your gamemode to spectator.");
+                    }
+                }.runTaskLater(Main.getInstance(), 20L);
             }
         }
     }
