@@ -1,5 +1,6 @@
 package com.oinkcraft.oinkutils.submission;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -7,11 +8,12 @@ import com.oinkcraft.oinkutils.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
 import static org.bukkit.ChatColor.*;
 
-public class SubmitCommand implements CommandExecutor {
+public class SubmitCommand implements CommandExecutor, TabCompleter {
     private String prefix;
 
     public SubmitCommand() {
@@ -23,19 +25,19 @@ public class SubmitCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!(sender instanceof Player)) {
-            sender.sendMessage(RED+"Sorry, you must be a player to use this command!");
+            sender.sendMessage(RED + "Sorry, you must be a player to use this command!");
             return true;
         }
-        Player player = (Player)sender;
+        Player player = (Player) sender;
         if (command.getName().equalsIgnoreCase("submit")) {
             if (args.length == 0) {
                 sender.sendMessage(prefix + "Too few arguments provided!");
-                sender.sendMessage(prefix + "Use " + GREEN +"/submit builder " + GRAY + "for Builder submissions, "+ GREEN +"/submit redstone "+GRAY+"for Redstone Rank submissions, or "+ GREEN+"/submit parkour"+ GRAY +" for parkour map submissions.");
+                sender.sendMessage(prefix + "Use " + GREEN + "/submit builder " + GRAY + "for Builder submissions, " + GREEN + "/submit redstone " + GRAY + "for Redstone Rank submissions, or " + GREEN + "/submit parkour" + GRAY + " for parkour map submissions.");
                 return true;
             }
             if (args.length > 3) {
                 sender.sendMessage(prefix + "Too many arguments provided!");
-            sender.sendMessage(prefix + "Use "+GREEN+"/submit builder "+GRAY+"for Builder submissions, "+GREEN+"/submit redstone "+GRAY+"for Redstone Rank submissions, or "+GREEN+"/submit parkour"+GRAY+" for parkour map submissions.");
+                sender.sendMessage(prefix + "Use " + GREEN + "/submit builder " + GRAY + "for Builder submissions, " + GREEN + "/submit redstone " + GRAY + "for Redstone Rank submissions, or " + GREEN + "/submit parkour" + GRAY + " for parkour map submissions.");
                 return true;
             }
             if (args[0].equalsIgnoreCase("builder")) {
@@ -79,8 +81,7 @@ public class SubmitCommand implements CommandExecutor {
                     return true;
                 }
                 if (!Main.getInstance().getSubmissions().getStringList("submissions.parkour").contains(playerName)) {
-                    if (submitConfirmations.containsKey(player))
-                    {
+                    if (submitConfirmations.containsKey(player)) {
                         player.sendMessage(this.prefix + "You already have a " + submitConfirmations.get(player) + " submission pending.");
                         return true;
                     }
@@ -97,58 +98,56 @@ public class SubmitCommand implements CommandExecutor {
                 return true;
             }
             if ((args[0].equalsIgnoreCase("reload")) && (!sender.hasPermission("mibutils.submissions.reload"))) {
-                sender.sendMessage(prefix + "You do not have access to "+RED+"mibutils.submissions.reload");
+                sender.sendMessage(prefix + "You do not have access to " + RED + "mibutils.submissions.reload");
                 return true;
             }
             if ((args[0].equalsIgnoreCase("remove")) && (sender.hasPermission("mibutils.submissions.remove"))) {
-                if ((args.length < 3) || (args.length > 3)) {
+                if (args.length != 3) {
                     player.sendMessage(prefix + "Incorrect usage! /submit remove <playername> <builder/redstone/parkour>");
                     return true;
                 }
-                if (args.length == 3) {
-                    if (args[2].equalsIgnoreCase("builder")) {
-                        List<String> builderNames = Main.getInstance().getSubmissions().getStringList("submissions.builder");
-                        if (builderNames.contains(args[1])) {
-                            builderNames.remove(args[1]);
-                            Main.getInstance().getSubmissions().set("submissions.builder", builderNames);
-                            Main.getInstance().saveSubmissions();
-                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the "+DARK_GREEN+BOLD+"builder list.");
-                            return true;
-                        }
-                        if (!builderNames.contains(args[1])) {
-                            player.sendMessage(prefix + "Could you not find " + args[1] + " in the "+DARK_GREEN+BOLD+"Builder list.");
-                            return true;
-                        }
+                if (args[2].equalsIgnoreCase("builder")) {
+                    List<String> builderNames = Main.getInstance().getSubmissions().getStringList("submissions.builder");
+                    if (builderNames.contains(args[1])) {
+                        builderNames.remove(args[1]);
+                        Main.getInstance().getSubmissions().set("submissions.builder", builderNames);
+                        Main.getInstance().saveSubmissions();
+                        player.sendMessage(prefix + "Successfully removed " + args[1] + " from the " + DARK_GREEN + BOLD + "builder list.");
                         return true;
                     }
-                    if (args[2].equalsIgnoreCase("redstone")) {
-                        List<String> redstoneNames = Main.getInstance().getSubmissions().getStringList("submissions.redstone");
-                        if (redstoneNames.contains(args[1])) {
-                            redstoneNames.remove(args[1]);
-                            Main.getInstance().getSubmissions().set("submissions.redstone", redstoneNames);
-                            Main.getInstance().saveSubmissions();
-                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the "+RED+BOLD+"redstone list.");
-                            return true;
-                        }
-                        if (!redstoneNames.contains(args[1])) {
-                            player.sendMessage(prefix + "Could not find " + args[1] + " in the "+RED+BOLD+"redstone list.");
-                            return true;
-                        }
+                    if (!builderNames.contains(args[1])) {
+                        player.sendMessage(prefix + "Could you not find " + args[1] + " in the " + DARK_GREEN + BOLD + "Builder list.");
                         return true;
                     }
-                    if (args[2].equalsIgnoreCase("parkour")) {
-                        List<String> parkourNames = Main.getInstance().getSubmissions().getStringList("submissions.parkour");
-                        if (parkourNames.contains(args[1])) {
-                            parkourNames.remove(args[1]);
-                            Main.getInstance().getSubmissions().set("submissions.parkour", parkourNames);
-                            Main.getInstance().saveSubmissions();
-                            player.sendMessage(prefix + "Successfully removed " + args[1] + " from the "+GRAY+BOLD+"parkour list.");
-                            return true;
-                        }
-                        if (!parkourNames.contains(args[1])) {
-                            player.sendMessage(prefix + "Could not find " + args[1] + " in the "+GRAY+BOLD+"parkour list.");
-                            return true;
-                        }
+                    return true;
+                }
+                if (args[2].equalsIgnoreCase("redstone")) {
+                    List<String> redstoneNames = Main.getInstance().getSubmissions().getStringList("submissions.redstone");
+                    if (redstoneNames.contains(args[1])) {
+                        redstoneNames.remove(args[1]);
+                        Main.getInstance().getSubmissions().set("submissions.redstone", redstoneNames);
+                        Main.getInstance().saveSubmissions();
+                        player.sendMessage(prefix + "Successfully removed " + args[1] + " from the " + RED + BOLD + "redstone list.");
+                        return true;
+                    }
+                    if (!redstoneNames.contains(args[1])) {
+                        player.sendMessage(prefix + "Could not find " + args[1] + " in the " + RED + BOLD + "redstone list.");
+                        return true;
+                    }
+                    return true;
+                }
+                if (args[2].equalsIgnoreCase("parkour")) {
+                    List<String> parkourNames = Main.getInstance().getSubmissions().getStringList("submissions.parkour");
+                    if (parkourNames.contains(args[1])) {
+                        parkourNames.remove(args[1]);
+                        Main.getInstance().getSubmissions().set("submissions.parkour", parkourNames);
+                        Main.getInstance().saveSubmissions();
+                        player.sendMessage(prefix + "Successfully removed " + args[1] + " from the " + GRAY + BOLD + "parkour list.");
+                        return true;
+                    }
+                    if (!parkourNames.contains(args[1])) {
+                        player.sendMessage(prefix + "Could not find " + args[1] + " in the " + GRAY + BOLD + "parkour list.");
+                        return true;
                     }
                 }
                 return true;
@@ -179,14 +178,17 @@ public class SubmitCommand implements CommandExecutor {
                 if (submitConfirmations.containsKey(player)) {
                     if ((submitConfirmations.get(player)).equals("BUILDER")) {
                         addToBuilder(player);
+                        submitConfirmations.remove(player, "BUILDER");
                         return true;
                     }
                     if ((submitConfirmations.get(player)).equals("REDSTONE")) {
                         addToRedstone(player);
+                        submitConfirmations.remove(player, "REDSTONE");
                         return true;
                     }
                     if ((submitConfirmations.get(player)).equals("PARKOUR")) {
                         addToParkour(player);
+                        submitConfirmations.remove(player, "PARKOUR");
                         return true;
                     }
                     player.sendMessage(this.prefix + "Something appears to have gone wrong. Please contact a staff member.");
@@ -194,11 +196,11 @@ public class SubmitCommand implements CommandExecutor {
                 }
             }
             if ((args[0].equalsIgnoreCase("list")) && (!sender.hasPermission("mibutils.submissions.list"))) {
-                sender.sendMessage(prefix + "You do not have access to "+RED+"mibutils.submissions.list");
+                sender.sendMessage(prefix + "You do not have access to " + RED + "mibutils.submissions.list");
                 return true;
             }
             if ((args[0].equalsIgnoreCase("remove")) && (!sender.hasPermission("mibutils.submissions.remove"))) {
-                sender.sendMessage(prefix + "You do not have access to "+RED+"mibutils.submissions.remove");
+                sender.sendMessage(prefix + "You do not have access to " + RED + "mibutils.submissions.remove");
                 return true;
             }
         }
@@ -262,5 +264,54 @@ public class SubmitCommand implements CommandExecutor {
         Main.getInstance().saveSubmissions();
 
         player.sendMessage(this.prefix + "You have successfully submitted your parkour map!");
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] args) {
+        List<String> tabCompleteList = new ArrayList<>();
+        if (command.getName().equalsIgnoreCase("submit")) {
+            if (args.length == 1) {
+                if (!submitConfirmations.containsKey(commandSender)) {
+                    tabCompleteList.add("builder");
+                    tabCompleteList.add("redstone");
+                    tabCompleteList.add("parkour");
+                }
+                tabCompleteList.add("yes");
+                if (commandSender.hasPermission("mibutils.submissions.reload")) {
+                    tabCompleteList.add("reload");
+                }
+                if (commandSender.hasPermission("mibutils.submissions.list")) {
+                    tabCompleteList.add("list");
+                }
+                if (commandSender.hasPermission("mibutils.submissions.remove")) {
+                    tabCompleteList.add("remove");
+                }
+
+                tabCompleteList.removeIf(item -> !item.startsWith(args[0]));
+            } else if (args.length == 2) {
+                if (args[0].equalsIgnoreCase("list") && commandSender.hasPermission("mibutils.submissions.list")) {
+                    tabCompleteList.add("builder");
+                    tabCompleteList.add("redstone");
+                    tabCompleteList.add("parkour");
+                }
+                if (args[0].equalsIgnoreCase("remove") && commandSender.hasPermission("mibutils.submissions.remove")) {
+                    tabCompleteList.addAll(Main.getInstance().getSubmissions().getStringList("submissions.builder"));
+                    tabCompleteList.addAll(Main.getInstance().getSubmissions().getStringList("submissions.redstone"));
+                    tabCompleteList.addAll(Main.getInstance().getSubmissions().getStringList("submissions.parkour"));
+                    tabCompleteList.sort(String::compareToIgnoreCase);
+
+                    tabCompleteList.removeIf(item -> !item.startsWith(args[1]));
+                }
+            } else if (args.length == 3) {
+                if (args[0].equalsIgnoreCase("remove")) {
+                    if (Main.getInstance().getSubmissions().getStringList("submissions.builder").contains(args[1])) tabCompleteList.add("builder");
+                    if (Main.getInstance().getSubmissions().getStringList("submissions.redstone").contains(args[1])) tabCompleteList.add("redstone ");
+                    if (Main.getInstance().getSubmissions().getStringList("submissions.parkour").contains(args[1])) tabCompleteList.add("parkour");
+                    tabCompleteList.removeIf(item -> !item.startsWith(args[2]));
+
+                }
+            }
+        }
+        return tabCompleteList;
     }
 }
