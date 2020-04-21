@@ -1,9 +1,11 @@
 name: OinkUtils
 author: ByteKangaroo
 main: com.oinkcraft.oinkutils.Main
-version: 1.2
+version: 1.3
 api-version: 1.13
 description: Utilities for the main Oinkcraft server
+softdepend:
+  - Multiverse-Core
 commands:
   oinkutils:
     usage: /<command>
@@ -34,3 +36,7 @@ permissions:
     description: Allows a player, or rank, to use the modtools command.
   oinkutils.mobspawn:
     description: Allows players to place mob spawn eggs or not.
+  oinkutils.advbuilder.build:
+    description: Allows players to use creative gamemode and build in advanced builder (not turn into spectator)
+  oinkutils.redstone.build:
+    description: Allows players to use creative gamemode and build in redstone world (not turn into spectator)

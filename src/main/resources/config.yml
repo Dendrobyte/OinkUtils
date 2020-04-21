@@ -2,6 +2,7 @@
 spawn-world: world
 redstone-world: redstonerank
 creative-world: plotworld
+advbuilder-world: advbuilder
 
 # You can't leave the default one here! Replace it with all fields.
 # Ensure you have valid world names!
