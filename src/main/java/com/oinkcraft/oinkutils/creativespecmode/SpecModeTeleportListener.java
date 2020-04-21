@@ -25,6 +25,16 @@ public class SpecModeTeleportListener implements Listener {
         Player player = event.getPlayer();
         World to = event.getTo().getWorld();
         World from = event.getFrom().getWorld();
+        // First, cancel if the world is the same
+        if(to.equals(from)) return;
+
+        // Second, cancel if they are both advbuilder, advbuilderterrain, or redstone
+        if(from.getName().toLowerCase().contains(advBuilderString) || from.getName().toLowerCase().contains("redstone")){
+            if(to.getName().toLowerCase().contains(advBuilderString) || to.getName().toLowerCase().contains("redstone")) {
+                return;
+            }
+        }
+
         // We only check the world they are arriving in because PerWorldInv / Multiverse should manage them leaving
         if(to.getName().toLowerCase().contains(advBuilderString)){
             if(!player.hasPermission("oinkutils.advbuilder.build")){
@@ -49,8 +59,7 @@ public class SpecModeTeleportListener implements Listener {
             }
         }
 
-        // TODO: Add cases for non-spectator modes (i.e. adv builder teleporting out of advbuilder world)
-        if(from.getName().toLowerCase().contains(advBuilderString) || from.getName().toLowerCase().contains("redstone")){
+        else {
             String spawnWorldName = Main.getInstance().getConfig().getString("spawn-world");
             if(bothAdvBuilderWorlds(from, to)) return;
             if(!to.getName().equalsIgnoreCase(spawnWorldName)){
