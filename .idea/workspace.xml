@@ -6,10 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" afterDir="false" />
+    <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="update commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +84,10 @@
       <workItem from="1586534632914" duration="1278000" />
       <workItem from="1586635629907" duration="411000" />
       <workItem from="1586639151016" duration="1235000" />
-      <workItem from="1586694486096" duration="784000" />
+      <workItem from="1586694486096" duration="1045000" />
+      <workItem from="1586941975674" duration="629000" />
+      <workItem from="1587492210165" duration="20000" />
+      <workItem from="1587492469157" duration="1097000" />
     </task>
     <task id="LOCAL-00001" summary="Voting working!">
       <created>1567009941546</created>
@@ -123,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586639654248</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Players not tp'd to spawn if traveling btwn adv builder worlds.">
+      <created>1586697028276</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1586697028276</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +156,7 @@
     <MESSAGE value="Spectator mode for non adv builders in advbuilder world(s)" />
     <MESSAGE value="Teleportation disabled if outside adv worlds" />
     <MESSAGE value="Login/logout for specmode fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login/logout for specmode fixed." />
+    <MESSAGE value="Players not tp'd to spawn if traveling btwn adv builder worlds." />
+    <option name="LAST_COMMIT_MESSAGE" value="Players not tp'd to spawn if traveling btwn adv builder worlds." />
   </component>
 </project>
