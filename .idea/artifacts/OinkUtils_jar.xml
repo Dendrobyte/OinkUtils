@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="OinkUtils:jar">
-    <output-path>$PROJECT_DIR$/../../Server/plugins/update</output-path>
-    <root id="archive" name="OinkUtils.jar">
-      <element id="module-output" name="OinkUtils" />
-    </root>
-  </artifact>
-</component>
