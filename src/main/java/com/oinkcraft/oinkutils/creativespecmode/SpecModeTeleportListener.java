@@ -62,7 +62,7 @@ public class SpecModeTeleportListener implements Listener {
         else {
             String spawnWorldName = Main.getInstance().getConfig().getString("spawn-world");
             if(bothAdvBuilderWorlds(from, to)) return;
-            if(!to.getName().equalsIgnoreCase(spawnWorldName)){
+            if((from.getName().contains(advBuilderString) || from.getName().contains("redstone")) && !to.getName().equalsIgnoreCase(spawnWorldName)){
                 event.setCancelled(true);
                 player.teleport(Bukkit.getServer().getWorld(spawnWorldName).getSpawnLocation());
                 player.sendMessage("" + ChatColor.GRAY + "You have been sent to the default spawn world as to avoid abuse of spectator mode teleportation.");

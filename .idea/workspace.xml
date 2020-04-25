@@ -6,20 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="update commit">
+    <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeLoginLogoutListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/PreventVisitorMobPlacementListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/modtools/PreventVisitorMobPlacementListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/portals/NetherPortalListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/portals/NetherPortalListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/voting/VoteCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/voting/VoteCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/voting/VoteListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/voting/VoteListener.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +86,9 @@
       <workItem from="1586635629907" duration="411000" />
       <workItem from="1586639151016" duration="1235000" />
       <workItem from="1586694486096" duration="784000" />
-      <workItem from="1587511794337" duration="950000" />
+      <workItem from="1587511794337" duration="1696000" />
+      <workItem from="1587779746987" duration="25000" />
+      <workItem from="1587827943370" duration="715000" />
     </task>
     <task id="LOCAL-00001" summary="Voting working!">
       <created>1567009941546</created>
@@ -134,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586639654248</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Spec mode bug fix. I was overcomplicating it.">
+      <created>1587512801330</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587512801330</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +157,7 @@
     <MESSAGE value="Spectator mode for non adv builders in advbuilder world(s)" />
     <MESSAGE value="Teleportation disabled if outside adv worlds" />
     <MESSAGE value="Login/logout for specmode fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login/logout for specmode fixed." />
+    <MESSAGE value="Spec mode bug fix. I was overcomplicating it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Spec mode bug fix. I was overcomplicating it." />
   </component>
 </project>
