@@ -26,7 +26,7 @@ public class SpecModeTeleportListener implements Listener {
         World to = event.getTo().getWorld();
         World from = event.getFrom().getWorld();
         // First, cancel if the world is the same
-        if(to.equals(from)) return;
+        if(to.getName().equalsIgnoreCase(from.getName())) return;
 
         // Second, cancel if they are both advbuilder, advbuilderterrain, or redstone
         if(from.getName().toLowerCase().contains(advBuilderString) || from.getName().toLowerCase().contains("redstone")){
@@ -43,7 +43,8 @@ public class SpecModeTeleportListener implements Listener {
                     @Override
                     public void run() {
                         if (player.getWorld().getName().toLowerCase().contains(advBuilderString)){
-                        player.setGameMode(GameMode.SPECTATOR);}
+                            player.setGameMode(GameMode.SPECTATOR);
+                        }
                     }
                 }.runTaskLater(Main.getInstance(), 20L);
             }
@@ -55,7 +56,8 @@ public class SpecModeTeleportListener implements Listener {
                     @Override
                     public void run() {
                         if (player.getWorld().getName().toLowerCase().contains(advBuilderString)){
-                            player.setGameMode(GameMode.SPECTATOR);}
+                            player.setGameMode(GameMode.SPECTATOR);
+                        }
                     }
                 }.runTaskLater(Main.getInstance(), 20L);
             }
