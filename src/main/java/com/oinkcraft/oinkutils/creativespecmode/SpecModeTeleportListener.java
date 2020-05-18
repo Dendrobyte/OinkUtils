@@ -32,7 +32,8 @@ public class SpecModeTeleportListener implements Listener {
                 BukkitTask quickTimer = new BukkitRunnable() {
                     @Override
                     public void run() {
-                        player.setGameMode(GameMode.SPECTATOR);
+                        if (player.getWorld().getName().toLowerCase().contains(advBuilderString)){
+                        player.setGameMode(GameMode.SPECTATOR);}
                     }
                 }.runTaskLater(Main.getInstance(), 20L);
             }
@@ -43,7 +44,8 @@ public class SpecModeTeleportListener implements Listener {
                 BukkitTask quickTimer = new BukkitRunnable() {
                     @Override
                     public void run() {
-                        player.setGameMode(GameMode.SPECTATOR);
+                        if (player.getWorld().getName().toLowerCase().contains(advBuilderString)){
+                            player.setGameMode(GameMode.SPECTATOR);}
                     }
                 }.runTaskLater(Main.getInstance(), 20L);
             }
@@ -56,6 +58,7 @@ public class SpecModeTeleportListener implements Listener {
             if(!to.getName().equalsIgnoreCase(spawnWorldName)){
                 event.setCancelled(true);
                 player.teleport(Bukkit.getServer().getWorld(spawnWorldName).getSpawnLocation());
+                player.sendMessage("" + ChatColor.GRAY + "You have been sent to the default spawn world as to avoid abuse of spectator mode teleportation.");
                 player.sendMessage("" + ChatColor.GRAY + "You have been sent to the default spawn world as to avoid abuse of spectator mode teleportation.");
             }
         }
