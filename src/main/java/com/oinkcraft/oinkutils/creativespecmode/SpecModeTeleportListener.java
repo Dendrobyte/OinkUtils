@@ -55,7 +55,7 @@ public class SpecModeTeleportListener implements Listener {
                 BukkitTask quickTimer = new BukkitRunnable() {
                     @Override
                     public void run() {
-                        if (player.getWorld().getName().toLowerCase().contains(advBuilderString)){
+                        if (player.getWorld().getName().toLowerCase().contains("redstone")){
                             player.setGameMode(GameMode.SPECTATOR);
                         }
                     }
