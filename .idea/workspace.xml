@@ -7,8 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +96,8 @@
       <workItem from="1587827943370" duration="748000" />
       <workItem from="1588164156315" duration="252000" />
       <workItem from="1588203018416" duration="84000" />
-      <workItem from="1589833926397" duration="2502000" />
+      <workItem from="1589833926397" duration="3630000" />
+      <workItem from="1591225707234" duration="551000" />
     </task>
     <task id="LOCAL-00001" summary="Voting working!">
       <created>1567009941546</created>
@@ -150,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589835864412</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed teleportation!">
+      <created>1589837025510</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1589837025510</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +190,7 @@
     <MESSAGE value="Spec mode bug fix. I was overcomplicating it." />
     <MESSAGE value="hotfix for teleportation to worlds other than spawn" />
     <MESSAGE value="Fix teleportation??????" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix teleportation??????" />
+    <MESSAGE value="Fixed teleportation!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed teleportation!" />
   </component>
 </project>
