@@ -100,6 +100,7 @@ public class Main extends JavaPlugin {
         // Modtools
         registerCommand("modtools", new CommandBase());
         registerCommand("sneeze", new CommandBase());
+        registerCommand("townyban", new CommandBase());
         // Submissions
         registerCommand("submit", new SubmitCommand());
         // Voting

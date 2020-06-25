@@ -8,7 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="987ea713-d9bc-4e9e-9f52-9f76dcb02113" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/CommandBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/CommandBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakInventoryMoveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakInventoryMoveListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +98,9 @@
       <workItem from="1588203018416" duration="84000" />
       <workItem from="1589833926397" duration="3630000" />
       <workItem from="1591225707234" duration="619000" />
-      <workItem from="1591278721431" duration="902000" />
+      <workItem from="1591278721431" duration="954000" />
+      <workItem from="1591285318880" duration="10000" />
+      <workItem from="1593095365988" duration="1209000" />
     </task>
     <task id="LOCAL-00001" summary="Voting working!">
       <created>1567009941546</created>
@@ -166,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591226291340</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Case sensitivity issues resolved.">
+      <created>1591279800558</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1591279800558</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +209,7 @@
     <MESSAGE value="Fix teleportation??????" />
     <MESSAGE value="Fixed teleportation!" />
     <MESSAGE value="Fixed teleportation (x2)!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed teleportation (x2)!" />
+    <MESSAGE value="Case sensitivity issues resolved." />
+    <option name="LAST_COMMIT_MESSAGE" value="Case sensitivity issues resolved." />
   </component>
 </project>

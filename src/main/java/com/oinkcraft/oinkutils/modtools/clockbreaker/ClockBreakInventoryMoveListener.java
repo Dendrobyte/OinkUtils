@@ -36,7 +36,8 @@ public class ClockBreakInventoryMoveListener implements Listener {
             player.closeInventory();
             player.sendMessage(prefix + RED + "Please don't move and/or store the ClockBreaker.");
             player.sendMessage(prefix + RED + "(It has been removed)");
-            event.getCurrentItem().setAmount(0);
+            ItemStack clockbreaker = new BreakerItem(Material.STICK).getItem();
+            player.getInventory().remove(clockbreaker);
         }
     }
 

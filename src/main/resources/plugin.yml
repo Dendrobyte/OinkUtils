@@ -27,6 +27,9 @@ commands:
   vote:
     description: Vote command to list links
     usage: /vote
+  townyban
+    description: Allows mods to townyban members
+    usage: /townyban <name> <temp/perm>
 permissions:
   oinkutils.admin:
     description: No need for a command yet, so...

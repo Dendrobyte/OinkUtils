@@ -2,6 +2,7 @@ package com.oinkcraft.oinkutils.modtools;
 
 import com.oinkcraft.oinkutils.Main;
 import com.oinkcraft.oinkutils.modtools.clockbreaker.BreakerItem;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -105,6 +106,31 @@ public class CommandBase implements CommandExecutor, TabCompleter {
                 }
             }
         }
+        if(cmd.getName().equalsIgnoreCase("townyban")){
+            if(!player.hasPermission("modtools.use")){
+                player.sendMessage(prefix + "You must be a Moderator to use ModTools!");
+                player.sendMessage(prefix + DARK_GREEN + "If you are a moderator... make sure you're in the creative world.");
+                return true;
+            } else {
+                if(args.length != 2){
+                    player.sendMessage(prefix + ChatColor.RED + "Improper usage! " + AQUA + "/townyban <name> <temp/perm>");
+                }
+                String username = args[0];
+                if(args[1].equalsIgnoreCase("temp")){
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + username + " permission settemp multiverse.access.oink_towny false 1w");
+                    player.sendMessage(prefix + "User " + username + " has been banned from the towny world for 1 week.");
+                    return true;
+                }
+                else if(args[1].equalsIgnoreCase("perm")){
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + username + " permission settemp multiverse.access.oink_towny false");
+                    player.sendMessage(prefix + "User " + username + " has been banned from the towny world PERMANENTLY.");
+                    return true;
+                } else {
+                    player.sendMessage(prefix + ChatColor.RED + "Improper argument! " + AQUA + "Use either \'temp\' or \'perm\'");
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -112,6 +138,7 @@ public class CommandBase implements CommandExecutor, TabCompleter {
         player.sendMessage("§8--------§3ModTools§8--------");
         player.sendMessage("§3Clock Breaker - §b/mtools clockbreaker");
         player.sendMessage("§3Sneeze (Clear Entities) - §b/sneeze <radius>");
+        player.sendMessage("§3Towny Ban - §b/townyban <name> <temp/perm>");
         player.sendMessage("§8--------§3End of Help Menu§8--------");
         return;
     }
