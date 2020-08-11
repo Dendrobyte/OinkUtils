@@ -10,9 +10,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/CommandBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/CommandBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakInventoryMoveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/oinkcraft/oinkutils/modtools/clockbreaker/ClockBreakInventoryMoveListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/oinkcraft/oinkutils/creativespecmode/SpecModeTeleportListener.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +98,8 @@
       <workItem from="1591225707234" duration="619000" />
       <workItem from="1591278721431" duration="954000" />
       <workItem from="1591285318880" duration="10000" />
-      <workItem from="1593095365988" duration="1209000" />
+      <workItem from="1593095365988" duration="1264000" />
+      <workItem from="1597175825925" duration="995000" />
     </task>
     <task id="LOCAL-00001" summary="Voting working!">
       <created>1567009941546</created>
@@ -179,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591279800558</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="townyban added, clockbreaker adjustments">
+      <created>1593096623044</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593096623044</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +216,7 @@
     <MESSAGE value="Fixed teleportation!" />
     <MESSAGE value="Fixed teleportation (x2)!" />
     <MESSAGE value="Case sensitivity issues resolved." />
-    <option name="LAST_COMMIT_MESSAGE" value="Case sensitivity issues resolved." />
+    <MESSAGE value="townyban added, clockbreaker adjustments" />
+    <option name="LAST_COMMIT_MESSAGE" value="townyban added, clockbreaker adjustments" />
   </component>
 </project>

@@ -27,9 +27,12 @@ commands:
   vote:
     description: Vote command to list links
     usage: /vote
-  townyban
+  townyban:
     description: Allows mods to townyban members
     usage: /townyban <name> <temp/perm>
+  rankup:
+    description: Easy use for moderators to rank players to member
+    usage: /rankup <name>
 permissions:
   oinkutils.admin:
     description: No need for a command yet, so...

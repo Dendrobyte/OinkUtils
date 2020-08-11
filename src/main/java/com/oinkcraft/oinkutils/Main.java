@@ -97,10 +97,11 @@ public class Main extends JavaPlugin {
         registerCommand("oinkutils", new BaseCommand());
         // ChatColorChange
         registerCommand("chatcolorchange", new ColorChangeCommand());
-        // Modtools
+        // Modtools (I don't think I need to have done this four times... lmao)
         registerCommand("modtools", new CommandBase());
         registerCommand("sneeze", new CommandBase());
         registerCommand("townyban", new CommandBase());
+        registerCommand("rankup", new CommandBase());
         // Submissions
         registerCommand("submit", new SubmitCommand());
         // Voting

@@ -109,7 +109,6 @@ public class CommandBase implements CommandExecutor, TabCompleter {
         if(cmd.getName().equalsIgnoreCase("townyban")){
             if(!player.hasPermission("modtools.use")){
                 player.sendMessage(prefix + "You must be a Moderator to use ModTools!");
-                player.sendMessage(prefix + DARK_GREEN + "If you are a moderator... make sure you're in the creative world.");
                 return true;
             } else {
                 if(args.length != 2){
@@ -131,6 +130,34 @@ public class CommandBase implements CommandExecutor, TabCompleter {
                 }
             }
         }
+
+        if(cmd.getName().equalsIgnoreCase("rankup")){
+            if(!player.hasPermission("modtools.use")){
+                player.sendMessage(prefix + "You must be a Moderator to use ModTools!");
+                return true;
+            }
+            if(args.length <= 1){
+                player.sendMessage(prefix + "Please input an online user's username to rank them to Member.");
+                return true;
+            } else {
+                String playerName = args[0];
+                Player playerToRank = Bukkit.getServer().getPlayer(playerName);
+                if(playerToRank == null){
+                    player.sendMessage(prefix + "That player could not be found! You entered: " + ChatColor.RED + ITALIC + playerName);
+                    return true;
+                } else {
+                    if(playerToRank.hasPermission("group.member")){
+                        player.sendMessage(prefix + "That play is already a Member (or above)!");
+                        return true;
+                    } else {
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + playerToRank + " parent set Member");
+                        playerToRank.sendMessage("" + GOLD + BOLD + "CONGRATULATIONS!" + GRAY + ITALIC + " You've just been ranked to Member.");
+                        player.sendMessage(prefix + playerToRank + " has successfully been made a Member!");
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 
@@ -139,6 +166,7 @@ public class CommandBase implements CommandExecutor, TabCompleter {
         player.sendMessage("§3Clock Breaker - §b/mtools clockbreaker");
         player.sendMessage("§3Sneeze (Clear Entities) - §b/sneeze <radius>");
         player.sendMessage("§3Towny Ban - §b/townyban <name> <temp/perm>");
+        player.sendMessage("§3Member Rankup - §b/rankup <name>");
         player.sendMessage("§8--------§3End of Help Menu§8--------");
         return;
     }
