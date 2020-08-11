@@ -113,6 +113,7 @@ public class CommandBase implements CommandExecutor, TabCompleter {
             } else {
                 if(args.length != 2){
                     player.sendMessage(prefix + ChatColor.RED + "Improper usage! " + AQUA + "/townyban <name> <temp/perm>");
+                    return true;
                 }
                 String username = args[0];
                 if(args[1].equalsIgnoreCase("temp")){
@@ -121,7 +122,7 @@ public class CommandBase implements CommandExecutor, TabCompleter {
                     return true;
                 }
                 else if(args[1].equalsIgnoreCase("perm")){
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + username + " permission settemp multiverse.access.oink_towny false");
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + username + " permission set multiverse.access.oink_towny false");
                     player.sendMessage(prefix + "User " + username + " has been banned from the towny world PERMANENTLY.");
                     return true;
                 } else {
@@ -136,7 +137,7 @@ public class CommandBase implements CommandExecutor, TabCompleter {
                 player.sendMessage(prefix + "You must be a Moderator to use ModTools!");
                 return true;
             }
-            if(args.length <= 1){
+            if(args.length < 1){
                 player.sendMessage(prefix + "Please input an online user's username to rank them to Member.");
                 return true;
             } else {
@@ -150,9 +151,9 @@ public class CommandBase implements CommandExecutor, TabCompleter {
                         player.sendMessage(prefix + "That play is already a Member (or above)!");
                         return true;
                     } else {
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + playerToRank + " parent set Member");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + playerToRank.getName() + " parent set Member");
                         playerToRank.sendMessage("" + GOLD + BOLD + "CONGRATULATIONS!" + GRAY + ITALIC + " You've just been ranked to Member.");
-                        player.sendMessage(prefix + playerToRank + " has successfully been made a Member!");
+                        player.sendMessage(prefix + playerToRank.getName() + " has successfully been made a Member!");
                         return true;
                     }
                 }
